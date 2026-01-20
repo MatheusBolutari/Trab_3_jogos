@@ -1,0 +1,6 @@
+res://Cenas/sala_de_testes.tscn
+res://Cenas/player.tscn
+res://Scripts/player.gd
+res://Cenas/camera_teste.tscn
+res://Scripts/camera_teste.gd
+res://Scripts/sala_de_testes.gd

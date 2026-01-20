@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://digyor38b6xbb"]
+
+[ext_resource type="Script" uid="uid://c002n6ntvdq3x" path="res://Scripts/sala_de_testes.gd" id="1_67ekk"]
+[ext_resource type="PackedScene" uid="uid://bs6erd3fjim0p" path="res://Cenas/player.tscn" id="1_mlq5q"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_co7y1"]
+size = Vector2(20, 20)
+
+[node name="Sala de Testes" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_co7y1")
+script = ExtResource("1_67ekk")
+
+[node name="Player" parent="." instance=ExtResource("1_mlq5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+velocidade_olho = 0.5
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.03932956, 0.9992263, 0, -0.9992263, -0.03932956, 0, 0, 0)

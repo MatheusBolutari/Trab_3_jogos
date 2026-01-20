@@ -1,0 +1,10 @@
+AnimationPlayer
+MeshInstance3D
+StaticBody3D
+Label
+Panel
+CanvasLayer
+Camera3D
+DirectionalLight3D
+CollisionShape3D
+CharacterBody3D
