@@ -1,8 +1,8 @@
-Camera3D
-Node
 CollisionShape3D
 Area3D
+Node
 AudioStreamPlayer3D
+Camera3D
 CharacterBody3D
 SpotLight3D
 OmniLight3D
@@ -12,4 +12,3 @@ StaticBody3D
 AnimationPlayer
 Label
 Panel
-CanvasLayer

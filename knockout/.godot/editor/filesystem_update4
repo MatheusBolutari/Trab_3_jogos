@@ -1,8 +1,7 @@
+res://Scripts/gerencia_som.gd
+res://Cenas/main.tscn
+res://Cenas/gerencia_bracos.gd
 res://Cenas/player.tscn
 res://Scripts/player.gd
-res://Cenas/sala_de_testes.tscn
-res://Cenas/parede.tscn
-res://Cenas/main.tscn
-res://Scripts/sala_de_testes.gd
 res://Cenas/inimigo.tscn
-res://Scripts/gerenciador_colisao.gd
+res://Cenas/inimigo.gd

@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://0i2ni65tlhnt"]
+[gd_scene load_steps=9 format=3 uid="uid://0i2ni65tlhnt"]
 
 [ext_resource type="PackedScene" uid="uid://inqv4nwc6ssw" path="res://Cenas/parede.tscn" id="1_74bqr"]
 [ext_resource type="Script" uid="uid://c002n6ntvdq3x" path="res://Scripts/sala_de_testes.gd" id="1_ruij7"]
 [ext_resource type="PackedScene" uid="uid://bs6erd3fjim0p" path="res://Cenas/player.tscn" id="2_ruij7"]
 [ext_resource type="PackedScene" uid="uid://c8x3vnkhaogw2" path="res://Cenas/inimigo.tscn" id="4_lb8y5"]
+[ext_resource type="Script" uid="uid://cgfbs5gxgkb0o" path="res://Scripts/gerencia_som.gd" id="5_n00j1"]
+[ext_resource type="AudioStream" uid="uid://dqtwvi5dgsntf" path="res://Assets/Sons/punch-sound-effect.mp3" id="6_x6di6"]
+[ext_resource type="AudioStream" uid="uid://k6jyruej5m8p" path="res://Assets/Sons/punch-notification_sound-493565.mp3" id="7_btbr3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fmu3i"]
 size = Vector2(20, 20)
@@ -270,4 +273,16 @@ velocidade_olho = 0.5
 [node name="Inimigo" parent="." instance=ExtResource("4_lb8y5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021573305, 0.8684695, -7.579118)
 
+[node name="gerencia_som" type="Node" parent="."]
+script = ExtResource("5_n00j1")
+
+[node name="Som_Soco1" type="AudioStreamPlayer3D" parent="gerencia_som"]
+stream = ExtResource("6_x6di6")
+
+[node name="Som_Soco2" type="AudioStreamPlayer3D" parent="gerencia_som"]
+stream = ExtResource("7_btbr3")
+
 [connection signal="block" from="Player" to="." method="_on_player_block"]
+[connection signal="colisao" from="Player/gerencia_bracos" to="gerencia_som" method="_on_gerencia_bracos_colisao"]
+
+[editable path="Player"]

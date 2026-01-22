@@ -16,6 +16,8 @@ var bloqueando: bool = false
 var socando: bool = false
 
 signal block
+signal punch
+
 
 func _ready() -> void:
 	orientacao_base = quaternion
@@ -42,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Socar"):
 		if soco == 0 and !$AnimationPlayer.is_playing() and !bloqueando:
 			$AnimationPlayer.play("SocoD")
+			punch.emit('soco')
 			socando = true
 			if randf() < 0.7:
 				soco = 1
@@ -49,11 +52,14 @@ func _physics_process(delta: float) -> void:
 				soco = 0
 		elif soco == 1 and !$AnimationPlayer.is_playing() and !bloqueando:
 			$AnimationPlayer.play("SocoE")
+			punch.emit('soco')
 			socando = true
 			if randf() < 0.7:
 				soco = 0
 			else:
 				soco = 1
+	if !$AnimationPlayer.is_playing():
+		punch.emit('!soco')
 	if Input.is_action_just_pressed("Bloquear"):
 		$AnimationPlayer.play("Levantar_Bloqueio")
 		bloqueando = true
@@ -79,14 +85,3 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	quaternion *= rot_x
 	dt += delta
-
-func soco_som()->void:
-	if randf() > 0.5:
-		$Som_Soco1.play()
-	else :
-		$Som_Soco2.play()
-
-func _on_gerenciador_colisao_p_hit() -> void:
-	if socando:
-		soco_som()
-		socando = false

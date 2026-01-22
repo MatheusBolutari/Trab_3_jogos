@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Knockout"
-run/main_scene="uid://digyor38b6xbb"
+run/main_scene="uid://0i2ni65tlhnt"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
