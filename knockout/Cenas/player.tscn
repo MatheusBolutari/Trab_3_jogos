@@ -1,6 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bs6erd3fjim0p"]
+[gd_scene load_steps=20 format=3 uid="uid://bs6erd3fjim0p"]
 
 [ext_resource type="Script" uid="uid://bly2cweuh0yg1" path="res://Scripts/player.gd" id="1_ytnb3"]
+[ext_resource type="ArrayMesh" uid="uid://bfcjdldi78h8c" path="res://Assets/Modelos3D/fantasma_sad.obj" id="2_pmvhq"]
+[ext_resource type="AudioStream" uid="uid://dqtwvi5dgsntf" path="res://Assets/Sons/punch-sound-effect.mp3" id="3_5p0qj"]
+[ext_resource type="AudioStream" uid="uid://k6jyruej5m8p" path="res://Assets/Sons/punch-notification_sound-493565.mp3" id="4_yuqgu"]
+[ext_resource type="Script" uid="uid://dcml7plgp8qsa" path="res://Scripts/gerenciador_colisao.gd" id="5_yuqgu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
@@ -35,6 +39,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(-0.43493822, 0.3216008, -0.61774725)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BracoE:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BracoD:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ytnb3"]
 resource_name = "Soco"
@@ -66,8 +94,112 @@ tracks/0/keys = {
 "values": [Vector3(-0.43493822, 0.3216008, -0.61774725), Vector3(-0.435, 0.322, -1.162), Vector3(-0.435, 0.322, -0.43), Vector3(-0.435, 0.322, -0.634), Vector3(-0.435, 0.322, -0.594)]
 }
 
+[sub_resource type="Animation" id="Animation_5p0qj"]
+resource_name = "Bloqueio"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BracoD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.22, 0.5, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.39326873, 0.3216008, -0.61774725), Vector3(0.39326873, 0.3216008, -0.61774725), Vector3(0.39326873, 0.3216008, -0.61774725), Vector3(0.39326873, 0.3216008, -0.61774725)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BracoE:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.22, 0.46666667, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.43493822, 0.3216008, -0.61774725), Vector3(-0.43493822, 0.3216008, -0.61774725), Vector3(-0.43493822, 0.3216008, -0.61774725), Vector3(-0.43493822, 0.3216008, -0.61774725)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BracoE:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.22, 0.46666667, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.20943952, 0), Vector3(0.07765009, -0.1947095, 0.37476194), Vector3(0.50963616, -0.51487213, 0.6091199)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BracoD:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.22, 0.5, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.20943952, 0), Vector3(0.07679449, 0.19547687, 0.37524578), Vector3(0.50986254, 0.51569766, 0.6084561)]
+}
+
+[sub_resource type="Animation" id="Animation_yuqgu"]
+resource_name = "Abaixar_Bloqueio"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BracoD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.22, 0.5, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.39326873, 0.3216008, -0.61774725), Vector3(0.39326873, 0.3216008, -0.61774725), Vector3(0.39326873, 0.3216008, -0.61774725), Vector3(0.39326873, 0.3216008, -0.61774725)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BracoE:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.22, 0.46666667, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.43493822, 0.3216008, -0.61774725), Vector3(-0.43493822, 0.3216008, -0.61774725), Vector3(-0.43493822, 0.3216008, -0.61774725), Vector3(-0.43493822, 0.3216008, -0.61774725)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BracoE:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.46666667, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.50963616, -0.51487213, 0.6091199), Vector3(0.07765009, -0.1947095, 0.37476194), Vector3(0, -0.20943952, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BracoD:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.5, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.50986254, 0.51569766, 0.6084561), Vector3(0.07679449, 0.19547687, 0.37524578), Vector3(0, 0.20943952, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iersn"]
 _data = {
+&"Abaixar_Bloqueio": SubResource("Animation_yuqgu"),
+&"Levantar_Bloqueio": SubResource("Animation_5p0qj"),
 &"RESET": SubResource("Animation_pmvhq"),
 &"SocoD": SubResource("Animation_ytnb3"),
 &"SocoE": SubResource("Animation_iersn")
@@ -80,6 +212,12 @@ albedo_color = Color(1, 0, 1, 1)
 material = SubResource("StandardMaterial3D_ytnb3")
 size = Vector3(0.25, 0.25, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5p0qj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yuqgu"]
+
+[sub_resource type="Environment" id="Environment_yuqgu"]
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ytnb3")
 velocidade = 10.0
@@ -88,13 +226,14 @@ velocidade_olho = 2.5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_sh265")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Primeira_Pessoa" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6269802, 0)
 environment = SubResource("Environment_wreb2")
+current = true
 
-[node name="Hud" type="CanvasLayer" parent="Camera3D"]
+[node name="Hud" type="CanvasLayer" parent="Primeira_Pessoa"]
 
-[node name="Label" type="Label" parent="Camera3D/Hud"]
+[node name="Label" type="Label" parent="Primeira_Pessoa/Hud"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -115,9 +254,44 @@ libraries = {
 }
 
 [node name="BracoD" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39326873, 0.3216008, -0.61774725)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.9999998, 0, 0, 0, 0.99999994, 0.39326873, 0.3216008, -0.61774725)
 mesh = SubResource("BoxMesh_ytnb3")
 
+[node name="ColisaoBD" type="Area3D" parent="BracoD"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BracoD/ColisaoBD"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, -0.36984682)
+shape = SubResource("BoxShape3D_5p0qj")
+debug_color = Color(0, 0, 0, 1)
+
 [node name="BracoE" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43493822, 0.3216008, -0.61774725)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.43493822, 0.3216008, -0.61774725)
 mesh = SubResource("BoxMesh_ytnb3")
+
+[node name="ColisaoBE" type="Area3D" parent="BracoE"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BracoE/ColisaoBE"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, -0.37739253)
+shape = SubResource("BoxShape3D_yuqgu")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="FantasmaSad" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5650145, 0)
+mesh = ExtResource("2_pmvhq")
+
+[node name="Som_Soco1" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_5p0qj")
+
+[node name="Som_Soco2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_yuqgu")
+
+[node name="Gerenciador_Colisao" type="Node" parent="."]
+script = ExtResource("5_yuqgu")
+
+[node name="Terceira_Pessoa" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.08752084, 0.99616265, 0, -0.99616265, 0.08752084, 0, 4.6881704, 0.17084599)
+environment = SubResource("Environment_yuqgu")
+
+[connection signal="body_entered" from="BracoD/ColisaoBD" to="Gerenciador_Colisao" method="_on_colisao_bd_body_entered"]
+[connection signal="body_entered" from="BracoE/ColisaoBE" to="Gerenciador_Colisao" method="_on_colisao_be_body_entered"]
+[connection signal="p_hit" from="Gerenciador_Colisao" to="." method="_on_gerenciador_colisao_p_hit"]

@@ -2,7 +2,8 @@ extends CharacterBody3D
 
 @export var velocidade: float
 @export var velocidade_olho: float
-@onready var camera_3d: Camera3D = $Camera3D
+@onready var primeira_pessoa: Camera3D = $Primeira_Pessoa
+@onready var terceira_pessoa: Camera3D = $Terceira_Pessoa
 
 var orientacao_base: Quaternion
 var mouse_h = 0
@@ -10,6 +11,11 @@ var mouse_v = 0
 var sprint = 0
 var dt = 0
 var soco = 0
+
+var bloqueando: bool = false
+var socando: bool = false
+
+signal block
 
 func _ready() -> void:
 	orientacao_base = quaternion
@@ -34,18 +40,33 @@ func _physics_process(delta: float) -> void:
 		sprint = 0
 	
 	if Input.is_action_just_pressed("Socar"):
-		if soco == 0 and !$AnimationPlayer.is_playing():
+		if soco == 0 and !$AnimationPlayer.is_playing() and !bloqueando:
 			$AnimationPlayer.play("SocoD")
-			if randf() > 0.3:
+			socando = true
+			if randf() < 0.7:
 				soco = 1
 			else:
 				soco = 0
-		elif soco == 1 and !$AnimationPlayer.is_playing():
+		elif soco == 1 and !$AnimationPlayer.is_playing() and !bloqueando:
 			$AnimationPlayer.play("SocoE")
-			if randf() > 0.3:
+			socando = true
+			if randf() < 0.7:
 				soco = 0
 			else:
 				soco = 1
+	if Input.is_action_just_pressed("Bloquear"):
+		$AnimationPlayer.play("Levantar_Bloqueio")
+		bloqueando = true
+		block.emit()
+	if Input.is_action_just_released("Bloquear"):
+		$AnimationPlayer.play("Abaixar_Bloqueio")
+		bloqueando = false
+		
+	if Input.is_action_just_pressed("Trocar_Camera"):
+		if primeira_pessoa.current:
+			terceira_pessoa.make_current()
+		else :
+			primeira_pessoa.make_current()
 	
 	var direction = (transform.basis.x * dx + transform.basis.z * dz)
 	direction = direction.normalized()
@@ -54,7 +75,18 @@ func _physics_process(delta: float) -> void:
 	velocity.z = direction.z * (velocidade + sprint)
 
 	quaternion = orientacao_base * rot_y
-	print(orientacao_base)
+	#print(orientacao_base)
 	move_and_slide()
 	quaternion *= rot_x
 	dt += delta
+
+func soco_som()->void:
+	if randf() > 0.5:
+		$Som_Soco1.play()
+	else :
+		$Som_Soco2.play()
+
+func _on_gerenciador_colisao_p_hit() -> void:
+	if socando:
+		soco_som()
+		socando = false

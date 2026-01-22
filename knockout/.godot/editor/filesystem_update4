@@ -1,6 +1,8 @@
-res://Cenas/sala_de_testes.tscn
 res://Cenas/player.tscn
 res://Scripts/player.gd
-res://Cenas/camera_teste.tscn
-res://Scripts/camera_teste.gd
+res://Cenas/sala_de_testes.tscn
+res://Cenas/parede.tscn
+res://Cenas/main.tscn
 res://Scripts/sala_de_testes.gd
+res://Cenas/inimigo.tscn
+res://Scripts/gerenciador_colisao.gd

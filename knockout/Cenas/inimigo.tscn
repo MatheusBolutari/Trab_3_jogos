@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8x3vnkhaogw2"]
+
+[ext_resource type="PackedScene" uid="uid://g53ypw40k8dm" path="res://Assets/Modelos3D/3D-Godot-Robot-Platformer-Character-fecf5b23e825cabedb9a6c9872d03ee57b5fdd61/3DGodotRobot.glb" id="1_r4xcy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r4xcy"]
+
+[node name="Inimigo" type="CharacterBody3D"]
+
+[node name="3DGodotRobot" parent="." instance=ExtResource("1_r4xcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.83567053, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_r4xcy")
+
+[editable path="3DGodotRobot"]
