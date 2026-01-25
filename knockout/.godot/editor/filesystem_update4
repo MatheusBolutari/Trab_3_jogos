@@ -1,7 +1,3 @@
-res://Scripts/gerencia_som.gd
 res://Cenas/main.tscn
-res://Cenas/gerencia_bracos.gd
-res://Cenas/player.tscn
-res://Scripts/player.gd
-res://Cenas/inimigo.tscn
 res://Cenas/inimigo.gd
+res://Cenas/inimigo.tscn

@@ -1,3 +1,5 @@
+NavigationRegion3D
+NavigationAgent3D
 CollisionShape3D
 Area3D
 Node
@@ -11,4 +13,3 @@ MeshInstance3D
 StaticBody3D
 AnimationPlayer
 Label
-Panel
