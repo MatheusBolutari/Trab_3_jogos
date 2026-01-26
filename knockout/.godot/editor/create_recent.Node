@@ -1,9 +1,9 @@
+BoneAttachment3D
 ProgressBar
 HSlider
 Node
 CollisionShape3D
 Area3D
-BoneAttachment3D
 NavigationObstacle3D
 NavigationRegion3D
 NavigationAgent3D
@@ -12,4 +12,3 @@ Camera3D
 CharacterBody3D
 SpotLight3D
 OmniLight3D
-DirectionalLight3D

@@ -9,8 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://k6jyruej5m8p" path="res://Assets/Sons/punch-notification_sound-493565.mp3" id="7_btbr3"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_n00j1"]
-vertices = PackedVector3Array(-9.271105, 0.49050844, -0.7667351, -1.7711048, 0.49050844, -0.7667351, -1.5211048, 0.49050844, -1.5167351, -0.2711048, 0.49050844, -9.266735, -9.271105, 0.49050844, -9.266735, -0.021104813, 0.49050844, -1.5167351, 9.228895, 0.49050844, -1.5167351, 9.228895, 0.49050844, -9.266735, -1.5211048, 0.49050844, -0.26673508, -9.271105, 0.49050844, 9.233265, 0.4788952, 0.49050844, 9.233265, 0.4788952, 0.49050844, -0.26673508, 9.228895, 0.49050844, 9.233265, 9.228895, 0.49050844, -0.26673508)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(3, 5, 2), PackedInt32Array(6, 5, 7), PackedInt32Array(7, 5, 3), PackedInt32Array(1, 8, 0), PackedInt32Array(0, 8, 9), PackedInt32Array(9, 8, 10), PackedInt32Array(8, 11, 10), PackedInt32Array(11, 13, 10), PackedInt32Array(10, 13, 12)]
+vertices = PackedVector3Array(-9.271105, 0.49050844, -0.7667351, -1.7711048, 0.49050844, -0.7667351, -1.5211048, 0.49050844, -1.5167351, -0.2711048, 0.49050844, -9.266735, -9.271105, 0.49050844, -9.266735, -0.021104813, 0.49050844, -1.5167351, 9.228895, 0.49050844, -1.5167351, 9.228895, 0.49050844, -9.266735, 5.728895, 0.49050844, 9.233265, 5.728895, 0.49050844, 7.233265, 4.728895, 0.49050844, 6.733265, -1.5211048, 0.49050844, -0.26673508, 4.478895, 0.49050844, 4.983265, 4.728895, 0.49050844, -0.26673508, -9.271105, 0.49050844, 9.233265, 6.478895, 0.49050844, 6.983265, 9.228895, 0.49050844, 9.233265, 5.978895, 0.49050844, 4.733265, 9.228895, 0.49050844, -0.26673508, 6.228895, 0.49050844, -0.26673508)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(3, 5, 2), PackedInt32Array(6, 5, 7), PackedInt32Array(7, 5, 3), PackedInt32Array(8, 10, 9), PackedInt32Array(0, 1, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(11, 12, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 0), PackedInt32Array(0, 8, 14), PackedInt32Array(9, 15, 8), PackedInt32Array(8, 15, 16), PackedInt32Array(15, 17, 16), PackedInt32Array(16, 17, 19), PackedInt32Array(16, 19, 18)]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fmu3i"]
 size = Vector2(20, 20)
@@ -277,6 +277,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.806309, 0.743155, -0.888767
 [node name="Parede67" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.431284, 0.743155, -0.8887677)
 
+[node name="Parede70" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(0.04907634, 0, -0.99879503, 0, 1, 0, 0.99879503, 0, 0.04907634, 5.431284, 0.743155, 0.40403235)
+
+[node name="Parede71" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-0.09466438, 0, -0.99550927, 0, 1, 0, 0.99550927, 0, -0.09466438, 5.431284, 0.743155, 2.9277415)
+
+[node name="Parede72" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(0.15869221, 0, -0.9873281, 0, 1, 0, 0.9873281, 0, 0.15869221, 5.431284, 0.743155, 5.3448515)
+
 [node name="Parede68" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.003676, 0.743155, -0.8887677)
 
@@ -289,11 +298,12 @@ mesh = SubResource("PlaneMesh_fmu3i")
 skeleton = NodePath("../../..")
 
 [node name="Player" parent="." instance=ExtResource("2_ruij7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6661632, 7.247174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.824565, 0.6661632, 1.6217456)
 velocidade_olho = 0.5
 
 [node name="Inimigo" parent="." instance=ExtResource("4_lb8y5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021573305, 0.8684695, -7.579118)
+velocidade = 5.0
 
 [node name="gerencia_som" type="Node" parent="."]
 script = ExtResource("5_n00j1")

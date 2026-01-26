@@ -1,10 +1,5 @@
-res://Cenas/main.tscn
-res://Cenas/inimigo.gd
-res://Cenas/parede.tscn
 res://Cenas/player.tscn
-res://Cenas/inimigo.tscn
-res://Robozinho_godot_2.tscn
 res://Scripts/inimigo.gd
-res://Scripts/colision_controller.gd
+res://Cenas/inimigo.tscn
 res://Cenas/Robozinho_godot_2.tscn
-res://Scripts/player.gd
+res://Cenas/main.tscn

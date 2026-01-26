@@ -7,7 +7,7 @@
 
 [node name="Inimigo" type="CharacterBody3D"]
 script = ExtResource("1_y60ay")
-velocidade = 1.0
+velocidade = 0.25
 
 [node name="3DGodotRobot" parent="." instance=ExtResource("2_y60ay")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.8794191, 0)
@@ -16,6 +16,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -
 shape = SubResource("CapsuleShape3D_r4xcy")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 2.0
 
 [connection signal="attack" from="3DGodotRobot/Colision_Controller" to="." method="_on_colision_controller_attack"]
 
