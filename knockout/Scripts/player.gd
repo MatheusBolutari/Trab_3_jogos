@@ -18,6 +18,8 @@ var vida: int = 100
 var bloqueando: bool = false
 var socando: bool = false
 
+var knockback : float = 0
+
 signal block
 signal punch
 
@@ -84,6 +86,12 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x = direction.x * (velocidade + sprint)
 	velocity.z = direction.z * (velocidade + sprint)
+	
+	if knockback != 0:
+		velocity.x = direction.x * (velocidade + knockback)
+		velocity.z = direction.z * (velocidade + knockback)
+		move_and_slide()
+		knockback = 0
 
 	quaternion = orientacao_base * rot_y
 	#print(orientacao_base)
@@ -94,3 +102,11 @@ func _physics_process(delta: float) -> void:
 
 func _on_inimigo_hit() -> void:
 	vida -= 1
+
+func _on_inimigo_knockback(empurrao : float) -> void:
+	if position.x + empurrao > 10 or position.x + empurrao < -10:
+		empurrao = 0
+	if position.z + empurrao > 10 or position.z + empurrao < -10:
+		empurrao = 0
+	knockback = empurrao
+	

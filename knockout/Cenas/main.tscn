@@ -304,6 +304,7 @@ velocidade_olho = 0.5
 [node name="Inimigo" parent="." instance=ExtResource("4_lb8y5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021573305, 0.8684695, -7.579118)
 velocidade = 5.0
+empurrao = 1.0
 
 [node name="gerencia_som" type="Node" parent="."]
 script = ExtResource("5_n00j1")
@@ -317,5 +318,6 @@ stream = ExtResource("7_btbr3")
 [connection signal="block" from="Player" to="." method="_on_player_block"]
 [connection signal="colisao" from="Player/gerencia_bracos" to="gerencia_som" method="_on_gerencia_bracos_colisao"]
 [connection signal="hit" from="Inimigo" to="Player" method="_on_inimigo_hit"]
+[connection signal="knockback" from="Inimigo" to="Player" method="_on_inimigo_knockback"]
 
 [editable path="Player"]
