@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bs6erd3fjim0p"]
+[gd_scene load_steps=20 format=3 uid="uid://bs6erd3fjim0p"]
 
 [ext_resource type="Script" uid="uid://bly2cweuh0yg1" path="res://Scripts/player.gd" id="1_ytnb3"]
 [ext_resource type="ArrayMesh" uid="uid://bfcjdldi78h8c" path="res://Assets/Modelos3D/fantasma_sad.obj" id="2_pmvhq"]
-[ext_resource type="Script" uid="uid://duhk0kob22cg1" path="res://Cenas/gerencia_bracos.gd" id="3_iersn"]
+[ext_resource type="Script" uid="uid://duhk0kob22cg1" path="res://Scripts/gerencia_bracos.gd" id="3_iersn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
@@ -10,6 +10,12 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_ytnb3"]
 font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iersn"]
+bg_color = Color(0.92156863, 0.12156863, 0.12156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p0qj"]
+bg_color = Color(0.28627452, 0.8784314, 0.12156863, 1)
 
 [sub_resource type="Animation" id="Animation_yuqgu"]
 resource_name = "Abaixar_Bloqueio"
@@ -232,7 +238,7 @@ current = true
 
 [node name="Hud" type="CanvasLayer" parent="Primeira_Pessoa"]
 
-[node name="Label" type="Label" parent="Primeira_Pessoa/Hud"]
+[node name="Mira" type="Label" parent="Primeira_Pessoa/Hud"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -246,6 +252,15 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "X"
 label_settings = SubResource("LabelSettings_ytnb3")
+
+[node name="Barra de Vida" type="ProgressBar" parent="Primeira_Pessoa/Hud"]
+offset_left = 47.0
+offset_top = 26.0
+offset_right = 377.0
+offset_bottom = 53.0
+theme_override_styles/background = SubResource("StyleBoxFlat_iersn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5p0qj")
+value = 100.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

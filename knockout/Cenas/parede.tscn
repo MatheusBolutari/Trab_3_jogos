@@ -13,9 +13,13 @@ size = Vector3(2.591591, 1.4351196, 0.16351318)
 
 [node name="Parede" type="StaticBody3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
+affect_navigation_mesh = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationObstacle3D"]
 transform = Transform3D(2.639657, 0, 0, 0, 1.5052931, 0, 0, 0, 0.20226325, 0, 0, 0)
 mesh = SubResource("BoxMesh_anvmf")
+skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02160263, 0.014007568, -0.011566162)

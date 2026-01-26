@@ -3,7 +3,9 @@ extends CharacterBody3D
 @export var velocidade: float
 @export var velocidade_olho: float
 @onready var primeira_pessoa: Camera3D = $Primeira_Pessoa
-@onready var terceira_pessoa: Camera3D = $Terceira_Pessoa
+@onready var terceira_pessoa: Camera3D = $Terceira_Pessoa #Camera para DEBUG
+@onready var barra_de_vida: ProgressBar = $"Primeira_Pessoa/Hud/Barra de Vida"
+
 
 var orientacao_base: Quaternion
 var mouse_h = 0
@@ -11,6 +13,7 @@ var mouse_v = 0
 var sprint = 0
 var dt = 0
 var soco = 0
+var vida: int = 100
 
 var bloqueando: bool = false
 var socando: bool = false
@@ -21,6 +24,8 @@ signal punch
 
 func _ready() -> void:
 	orientacao_base = quaternion
+	vida = 100
+	barra_de_vida.value = vida
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -85,3 +90,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	quaternion *= rot_x
 	dt += delta
+	barra_de_vida.value = vida
+
+func _on_inimigo_hit() -> void:
+	vida -= 1

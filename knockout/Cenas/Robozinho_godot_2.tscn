@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://fvyobbuoqo2q"]
+
+[ext_resource type="PackedScene" uid="uid://g53ypw40k8dm" path="res://Assets/Modelos3D/3D-Godot-Robot-Platformer-Character-fecf5b23e825cabedb9a6c9872d03ee57b5fdd61/3DGodotRobot.glb" id="1_tk3mb"]
+[ext_resource type="Script" uid="uid://y00okytol04d" path="res://Scripts/colision_controller.gd" id="2_aiumu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7sqp1"]
+radius = 0.23626807
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tk3mb"]
+radius = 0.24387343
+
+[node name="3DGodotRobot" instance=ExtResource("1_tk3mb")]
+
+[node name="Skeleton3D" parent="RobotArmature" index="0"]
+bones/0/rotation = Quaternion(0.014909218, 1.1919608e-07, 1.7773132e-09, 0.9998889)
+bones/1/rotation = Quaternion(0.029448897, -1.52228e-14, 7.0211668e-09, 0.9995664)
+bones/4/rotation = Quaternion(0.00540027, -1.1920753e-07, -6.4376265e-10, 0.99998546)
+bones/5/rotation = Quaternion(0.008212382, -4.9427408e-14, -1.9579842e-09, 0.99996626)
+bones/8/rotation = Quaternion(0.003939635, 1.1920836e-07, -4.696411e-10, 0.99999225)
+bones/10/rotation = Quaternion(0.01941109, 0.7434064, -0.023822224, 0.66813374)
+bones/12/rotation = Quaternion(0.020934895, 0.017021654, -0.017671376, 0.9994797)
+bones/14/rotation = Quaternion(0.01941109, -0.7434064, 0.023822224, 0.66813374)
+bones/16/rotation = Quaternion(0.020934895, -0.017021654, 0.017671376, 0.9994797)
+bones/17/rotation = Quaternion(0.99964744, 0.021063605, -0.0051235585, 0.0153314425)
+bones/18/rotation = Quaternion(-0.006184252, 0.004953394, 0.026989238, 0.99960434)
+bones/19/rotation = Quaternion(-0.49280763, 0.0026219035, -0.005212944, 0.87011874)
+bones/21/rotation = Quaternion(0.99964744, -0.021063602, 0.0051235682, 0.0153314425)
+bones/22/rotation = Quaternion(-0.006184278, -0.0049533797, -0.026989248, 0.99960434)
+bones/24/rotation = Quaternion(6.345747e-08, 0.9807643, -0.19519578, -1.8277872e-06)
+
+[node name="Mao Direita" type="BoneAttachment3D" parent="RobotArmature/Skeleton3D" index="4"]
+transform = Transform3D(-0.009290446, -0.9993846, 0.03381854, 0.9989985, -0.007795781, 0.044063695, -0.043772895, 0.034194, 0.9984561, -0.9962321, 1.5460845, 0.025426913)
+bone_name = "hand.R"
+bone_idx = 16
+
+[node name="Mao_direita" type="Area3D" parent="RobotArmature/Skeleton3D/Mao Direita" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RobotArmature/Skeleton3D/Mao Direita/Mao_direita" index="0"]
+transform = Transform3D(1, -9.313226e-10, -7.450581e-09, 1.1641532e-10, 1.0000001, 0, 3.7252903e-09, 0, 1.0000001, 0.002273202, 0.24452168, -0.008274451)
+shape = SubResource("SphereShape3D_7sqp1")
+
+[node name="Mao Esquerda" type="BoneAttachment3D" parent="RobotArmature/Skeleton3D" index="5"]
+transform = Transform3D(-0.009290446, 0.9993846, -0.03381854, -0.9989985, -0.007795781, 0.044063695, 0.043772895, 0.034194, 0.9984561, 0.9962321, 1.5460845, 0.025426913)
+bone_name = "hand.L"
+bone_idx = 12
+
+[node name="Mao_esquerda" type="Area3D" parent="RobotArmature/Skeleton3D/Mao Esquerda" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RobotArmature/Skeleton3D/Mao Esquerda/Mao_esquerda" index="0"]
+transform = Transform3D(1.0000001, -1.1641532e-10, 3.7252903e-09, 1.3969839e-09, 1.0000001, 7.450581e-09, 3.7252903e-09, -3.7252903e-09, 1, -0.0021497011, 0.23123294, -0.007824782)
+shape = SubResource("SphereShape3D_tk3mb")
+
+[node name="Colision_Controller" type="Node" parent="." index="2"]
+script = ExtResource("2_aiumu")
+
+[connection signal="body_entered" from="RobotArmature/Skeleton3D/Mao Direita/Mao_direita" to="Colision_Controller" method="_on_mao_direita_body_entered"]
+[connection signal="body_entered" from="RobotArmature/Skeleton3D/Mao Esquerda/Mao_esquerda" to="Colision_Controller" method="_on_mao_esquerda_body_entered"]
