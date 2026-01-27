@@ -1,4 +1,9 @@
-res://Scripts/inimigo.gd
+res://Scripts/hud.gd
 res://Scripts/player.gd
-res://Cenas/main.tscn
 res://Cenas/player.tscn
+res://Cenas/inimigo.tscn
+res://Scripts/inimigo.gd
+res://Cenas/main.tscn
+res://Scripts/gerencia_som.gd
+res://Scripts/gerencia_bracos.gd
+res://Cenas/parede.tscn

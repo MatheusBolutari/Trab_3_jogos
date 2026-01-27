@@ -15,6 +15,11 @@ run/main_scene="uid://0i2ni65tlhnt"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[global_group]
+
+Cenario=""
+Inimigos=""
+
 [input]
 
 Frente={

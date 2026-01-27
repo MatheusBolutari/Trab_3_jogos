@@ -1,5 +1,7 @@
-BoneAttachment3D
+GPUParticles3D
+Label
 ProgressBar
+BoneAttachment3D
 HSlider
 Node
 CollisionShape3D
@@ -11,4 +13,3 @@ AudioStreamPlayer3D
 Camera3D
 CharacterBody3D
 SpotLight3D
-OmniLight3D

@@ -11,7 +11,7 @@ material = SubResource("StandardMaterial3D_o48vq")
 [sub_resource type="BoxShape3D" id="BoxShape3D_ju15d"]
 size = Vector3(2.591591, 1.4351196, 0.16351318)
 
-[node name="Parede" type="StaticBody3D"]
+[node name="Parede" type="StaticBody3D" groups=["Cenario"]]
 
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
 affect_navigation_mesh = true

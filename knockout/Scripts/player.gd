@@ -2,9 +2,9 @@ extends CharacterBody3D
 
 @export var velocidade: float
 @export var velocidade_olho: float
+@export var dano: int
 @onready var primeira_pessoa: Camera3D = $Primeira_Pessoa
 @onready var terceira_pessoa: Camera3D = $Terceira_Pessoa #Camera para DEBUG
-@onready var barra_de_vida: ProgressBar = $"Primeira_Pessoa/Hud/Barra de Vida"
 
 var direcao_k : Vector3
 var orientacao_base: Quaternion
@@ -14,6 +14,7 @@ var sprint = 0
 var dt = 0
 var soco = 0
 var vida: int = 100
+var dano_aux : int
 
 var bloqueando: bool = false
 var socando: bool = false
@@ -22,18 +23,21 @@ var knockback : float
 var dx : float
 var dz : float
 
-signal block
-signal punch
+#signal block
+signal punch_sound
+signal health_bar
+signal punch_damage
 
 
 func _ready() -> void:
 	orientacao_base = quaternion
 	vida = 100
-	barra_de_vida.value = vida
 	dx = 0
 	dz = 0
 	knockback = 0
 	direcao_k = Vector3.ZERO
+	health_bar.emit(vida)
+	dano_aux = dano
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -58,7 +62,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Socar"):
 		if soco == 0 and !$AnimationPlayer.is_playing() and !bloqueando:
 			$AnimationPlayer.play("SocoD")
-			punch.emit('soco')
+			punch_sound.emit('soco')
+			punch_damage.emit(dano)
 			socando = true
 			if randf() < 0.7:
 				soco = 1
@@ -66,21 +71,23 @@ func _physics_process(delta: float) -> void:
 				soco = 0
 		elif soco == 1 and !$AnimationPlayer.is_playing() and !bloqueando:
 			$AnimationPlayer.play("SocoE")
-			punch.emit('soco')
+			punch_sound.emit('soco')
+			punch_damage.emit(dano)
 			socando = true
 			if randf() < 0.7:
 				soco = 0
 			else:
 				soco = 1
 	if !$AnimationPlayer.is_playing():
-		punch.emit('!soco')
+		punch_sound.emit('!soco')
 	if Input.is_action_just_pressed("Bloquear"):
 		$AnimationPlayer.play("Levantar_Bloqueio")
 		bloqueando = true
-		block.emit()
+		#block.emit('bloqueio')
 	if Input.is_action_just_released("Bloquear"):
 		$AnimationPlayer.play("Abaixar_Bloqueio")
 		bloqueando = false
+		#block.emit('!bloqueio')
 		
 	if Input.is_action_just_pressed("Trocar_Camera"):
 		if primeira_pessoa.current:
@@ -104,11 +111,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	quaternion *= rot_x
 	dt += delta
-	barra_de_vida.value = vida
 
 
 func _on_inimigo_hit(dano : int) -> void:
-	vida -= dano
+	if bloqueando:
+		vida -= int(dano*0.4)
+	else :
+		vida -= dano
+	health_bar.emit(vida)
 
 func _on_inimigo_knockback(empurrao : float, direcao_k : Vector3) -> void:
 	self.direcao_k = direcao_k

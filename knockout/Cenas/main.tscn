@@ -300,12 +300,14 @@ skeleton = NodePath("../../..")
 [node name="Player" parent="." instance=ExtResource("2_ruij7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.825, 1, 1.622)
 velocidade_olho = 0.5
+dano = 5
 
 [node name="Inimigo" parent="." instance=ExtResource("4_lb8y5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022, 1, -7.579)
 velocidade = 5.0
 empurrao = 3.0
 dano = 5
+nome = "Geremias 'The Killer'"
 
 [node name="gerencia_som" type="Node" parent="."]
 script = ExtResource("5_n00j1")
@@ -316,8 +318,20 @@ stream = ExtResource("6_x6di6")
 [node name="Som_Soco2" type="AudioStreamPlayer3D" parent="gerencia_som"]
 stream = ExtResource("7_btbr3")
 
-[connection signal="block" from="Player" to="." method="_on_player_block"]
+[node name="Som_Soco3" type="AudioStreamPlayer3D" parent="gerencia_som"]
+stream = ExtResource("6_x6di6")
+pitch_scale = 2.02
+
+[node name="Som_Soco4" type="AudioStreamPlayer3D" parent="gerencia_som"]
+stream = ExtResource("7_btbr3")
+pitch_scale = 2.02
+
+[connection signal="punch_sound" from="Player" to="gerencia_som" method="_on_player_punch_sound"]
+[connection signal="colisao" from="Player/gerencia_bracos" to="Inimigo" method="_on_gerencia_bracos_colisao"]
 [connection signal="colisao" from="Player/gerencia_bracos" to="gerencia_som" method="_on_gerencia_bracos_colisao"]
+[connection signal="Enemy_Health_Bar" from="Inimigo" to="Player/Primeira_Pessoa/Hud" method="_on_inimigo_enemy_health_bar"]
+[connection signal="Enemy_Name" from="Inimigo" to="Player/Primeira_Pessoa/Hud" method="_on_inimigo_enemy_name"]
+[connection signal="attack_sound" from="Inimigo" to="gerencia_som" method="_on_inimigo_attack_sound"]
 [connection signal="hit" from="Inimigo" to="Player" method="_on_inimigo_hit"]
 [connection signal="knockback" from="Inimigo" to="Player" method="_on_inimigo_knockback"]
 
