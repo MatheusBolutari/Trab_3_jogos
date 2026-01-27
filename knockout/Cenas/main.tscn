@@ -298,13 +298,14 @@ mesh = SubResource("PlaneMesh_fmu3i")
 skeleton = NodePath("../../..")
 
 [node name="Player" parent="." instance=ExtResource("2_ruij7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.824565, 0.6661632, 1.6217456)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.825, 1, 1.622)
 velocidade_olho = 0.5
 
 [node name="Inimigo" parent="." instance=ExtResource("4_lb8y5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021573305, 0.8684695, -7.579118)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022, 1, -7.579)
 velocidade = 5.0
-empurrao = 1.0
+empurrao = 3.0
+dano = 5
 
 [node name="gerencia_som" type="Node" parent="."]
 script = ExtResource("5_n00j1")

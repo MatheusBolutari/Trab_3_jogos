@@ -1,4 +1,4 @@
+res://Scripts/inimigo.gd
 res://Scripts/player.gd
 res://Cenas/main.tscn
-res://Scripts/inimigo.gd
-res://Scripts/sala_de_testes.gd
+res://Cenas/player.tscn

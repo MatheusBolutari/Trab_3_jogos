@@ -6,7 +6,7 @@ extends CharacterBody3D
 @onready var terceira_pessoa: Camera3D = $Terceira_Pessoa #Camera para DEBUG
 @onready var barra_de_vida: ProgressBar = $"Primeira_Pessoa/Hud/Barra de Vida"
 
-
+var direcao_k : Vector3
 var orientacao_base: Quaternion
 var mouse_h = 0
 var mouse_v = 0
@@ -18,7 +18,9 @@ var vida: int = 100
 var bloqueando: bool = false
 var socando: bool = false
 
-var knockback : float = 0
+var knockback : float 
+var dx : float
+var dz : float
 
 signal block
 signal punch
@@ -28,6 +30,10 @@ func _ready() -> void:
 	orientacao_base = quaternion
 	vida = 100
 	barra_de_vida.value = vida
+	dx = 0
+	dz = 0
+	knockback = 0
+	direcao_k = Vector3.ZERO
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -35,8 +41,9 @@ func _input(event: InputEvent) -> void:
 		mouse_v = clampf(mouse_v + event.relative.y, -90, 90)
 
 func _physics_process(delta: float) -> void:
-	var dx = Input.get_axis("Esquerda","Direita")
-	var dz = Input.get_axis("Frente","Atras")
+	if knockback == 0:
+		dx = Input.get_axis("Esquerda","Direita")
+		dz = Input.get_axis("Frente","Atras")
 	
 	var angle_y = mouse_h * velocidade_olho * delta
 	var angle_x = mouse_v * velocidade_olho * delta
@@ -86,24 +93,25 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x = direction.x * (velocidade + sprint)
 	velocity.z = direction.z * (velocidade + sprint)
-	
-	if knockback != 0:
-		velocity.x = direction.x * (velocidade + knockback)
-		velocity.z = direction.z * (velocidade + knockback)
-		move_and_slide()
-		knockback = 0
-
 	quaternion = orientacao_base * rot_y
 	#print(orientacao_base)
+	if knockback != 0:
+		velocity = direcao_k*(-knockback)*Vector3(1,0,1)*velocidade
+		knockback -= 0.5
+		if knockback < 0:
+			knockback = 0
+	
 	move_and_slide()
 	quaternion *= rot_x
 	dt += delta
 	barra_de_vida.value = vida
 
-func _on_inimigo_hit() -> void:
-	vida -= 1
 
-func _on_inimigo_knockback(empurrao : float) -> void:
+func _on_inimigo_hit(dano : int) -> void:
+	vida -= dano
+
+func _on_inimigo_knockback(empurrao : float, direcao_k : Vector3) -> void:
+	self.direcao_k = direcao_k
 	if position.x + empurrao > 10 or position.x + empurrao < -10:
 		empurrao = 0
 	if position.z + empurrao > 10 or position.z + empurrao < -10:
