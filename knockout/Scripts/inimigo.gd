@@ -6,15 +6,17 @@ extends CharacterBody3D
 @export var empurrao : float 
 @export var dano : int
 @export var nome : String
+@export var vida : int
+@export var velocidade_ataque : float
 var target_pos : Vector3
 var cooldown : float
-var vida : int
 
 signal hit
 signal knockback
 signal Enemy_Health_Bar
 signal Enemy_Name
 signal attack_sound
+signal dead
 
 func _ready() -> void:
 	cooldown = 0
@@ -23,6 +25,8 @@ func _ready() -> void:
 	Enemy_Name.emit(nome)
 	
 func _physics_process(delta: float) -> void:
+	Enemy_Health_Bar.emit(vida)
+	Enemy_Name.emit(nome)
 	#var v = Vector3.ZERO
 	if player:
 		target_pos = player.position
@@ -31,7 +35,7 @@ func _physics_process(delta: float) -> void:
 			velocity = velocidade * (position.direction_to($NavigationAgent3D.get_next_path_position()).normalized()) * Vector3(1,0,1)
 			animation_player.play("Run")
 			look_at(target_pos)
-		if position.distance_to(target_pos) < 2 and cooldown > 1.5:
+		if position.distance_to(target_pos) < 2 and cooldown > velocidade_ataque:
 			animation_player.play("Attack1")
 			cooldown = 0
 	elif !player:
@@ -54,6 +58,11 @@ func _on_colision_controller_attack(arg : String) -> void:
 			knockback.emit(empurrao,basis.z)
 
 func _on_gerencia_bracos_colisao(_arg: String, dano: int) -> void:
-	vida -= dano
-	$GPUParticles3D.restart()
+	if dano > 0:
+		vida -= dano
+		$GPUParticles3D.restart()
 	Enemy_Health_Bar.emit(vida)
+	if vida <= 0:
+		dead.emit()
+		Enemy_Health_Bar.emit(vida)
+		queue_free()

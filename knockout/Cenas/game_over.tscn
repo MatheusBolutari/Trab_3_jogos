@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://3wn47dn5dnbe"]
+
+[ext_resource type="Script" uid="uid://d275we27ucma0" path="res://Scripts/game_over.gd" id="1_18dpl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qawoc"]
+bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y2ld"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glpug"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_18dpl"]
+font_size = 50
+shadow_size = 5
+shadow_color = Color(1, 0, 0, 1)
+
+[node name="Game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_18dpl")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 4.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qawoc")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -194.0
+offset_top = -162.0
+offset_right = 205.0
+offset_bottom = -117.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_7y2ld")
+text = "TENTAR NOVAMENTE"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -93.0
+offset_right = 205.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_glpug")
+text = "SAIR"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = -11.5
+offset_right = 57.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "VOCÊ MORREU"
+label_settings = SubResource("LabelSettings_18dpl")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

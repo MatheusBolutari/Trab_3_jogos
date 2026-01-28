@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cre4pr75xd31p"]
+
+[ext_resource type="Texture2D" uid="uid://c2ta7j4a71tmc" path="res://Assets/Modelos3D/3D-Godot-Robot-Platformer-Character-fecf5b23e825cabedb9a6c9872d03ee57b5fdd61/3DGodotRobot_GodotPalette.png" id="1_slsmv"]
+
+[resource]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_slsmv")
+roughness = 0.4

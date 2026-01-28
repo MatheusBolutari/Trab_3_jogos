@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://8ovhfrhh8p1v"]
+
+[ext_resource type="Script" uid="uid://cfdh0y21klepf" path="res://Scripts/tela_vitoria.gd" id="1_yhj2i"]
+[ext_resource type="Texture2D" uid="uid://b080xg3o48xo1" path="res://Assets/Texturas/Fantasma.png" id="2_cuxwl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kmdc1"]
+texture = ExtResource("2_cuxwl")
+
+[sub_resource type="LabelSettings" id="LabelSettings_tdkjf"]
+font_size = 50
+shadow_size = 6
+shadow_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhj2i"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cuxwl"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmdc1"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="Tela_vitoria" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yhj2i")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_kmdc1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = -230.5
+offset_right = 169.0
+offset_bottom = -161.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "VOCÊ VENCEU"
+label_settings = SubResource("LabelSettings_tdkjf")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -179.0
+offset_top = -217.0
+offset_right = 169.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_yhj2i")
+text = "VOLTAR AO INÍCIO"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -179.0
+offset_top = -82.0
+offset_right = 169.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_cuxwl")
+text = "SAIR"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -150.0
+offset_right = 169.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_kmdc1")
+text = "CRÉDITOS"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

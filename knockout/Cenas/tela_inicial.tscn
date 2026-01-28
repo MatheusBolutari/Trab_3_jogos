@@ -1,0 +1,108 @@
+[gd_scene load_steps=6 format=3 uid="uid://f5fpr8eod7o2"]
+
+[ext_resource type="Script" uid="uid://3h60rm1e1soh" path="res://Scripts/tela_inicial.gd" id="1_b1rrf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_617go"]
+bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1rrf"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55vlj"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ouhyk"]
+font_size = 60
+shadow_size = 10
+shadow_color = Color(1, 0, 0, 1)
+
+[node name="Tela_Inicial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b1rrf")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_617go")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_top = -205.0
+offset_right = 106.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_b1rrf")
+text = "INICIAR
+"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_top = -142.0
+offset_right = 106.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_55vlj")
+text = "CONTROLES"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_top = -80.0
+offset_right = 106.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_55vlj")
+text = "SAIR
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.5
+offset_top = -53.5
+offset_right = 167.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "KNOCKOUT"
+label_settings = SubResource("LabelSettings_ouhyk")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

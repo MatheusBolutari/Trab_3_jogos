@@ -29,6 +29,7 @@ size = Vector2(0.05, 0.05)
 [node name="Inimigo" type="CharacterBody3D" groups=["Inimigos"]]
 script = ExtResource("1_y60ay")
 velocidade = 0.25
+velocidade_ataque = 1.5
 
 [node name="3DGodotRobot" parent="." instance=ExtResource("2_y60ay")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.8794191, 0)

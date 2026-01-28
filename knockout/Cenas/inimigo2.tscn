@@ -1,0 +1,103 @@
+[gd_scene load_steps=15 format=3 uid="uid://bf64i1ufq854p"]
+
+[ext_resource type="Script" uid="uid://b0l6edk2m63ye" path="res://Scripts/inimigo.gd" id="1_kbyk3"]
+[ext_resource type="PackedScene" uid="uid://fvyobbuoqo2q" path="res://Cenas/Robozinho_godot_2.tscn" id="2_7u3kt"]
+[ext_resource type="Texture2D" uid="uid://dmv65gvtvi5eu" path="res://Assets/Modelos3D/3D-Godot-Robot-Platformer-Character-fecf5b23e825cabedb9a6c9872d03ee57b5fdd61/GodotRobotPaletteSwap/GodotRedPalette.png" id="3_7u3kt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ltlmh"]
+albedo_texture = ExtResource("3_7u3kt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgnky"]
+albedo_texture = ExtResource("3_7u3kt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hji4c"]
+albedo_texture = ExtResource("3_7u3kt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrgxi"]
+albedo_texture = ExtResource("3_7u3kt")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r4xcy"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y60ay"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+direction = Vector3(1, 1, 1)
+spread = 0.0
+linear_accel_min = 89.28999
+linear_accel_max = 89.28999
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 36.899998
+tangential_accel_min = -100.0
+tangential_accel_max = 99.99999
+damping_max = 14.286
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_duo5w"]
+albedo_color = Color(1, 0.7058824, 0.32156864, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_rdsc4"]
+material = SubResource("StandardMaterial3D_duo5w")
+size = Vector2(0.05, 0.05)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7u3kt"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+gravity = Vector3(5, 10, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmhqq"]
+albedo_color = Color(0.20928375, 0.20928375, 0.20928375, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_ed2xb"]
+material = SubResource("StandardMaterial3D_rmhqq")
+size = Vector2(0.1, 0.1)
+
+[node name="Inimigo" type="CharacterBody3D" groups=["Inimigos"]]
+script = ExtResource("1_kbyk3")
+velocidade = 5.0
+empurrao = 3.0
+dano = 8
+nome = "Jorge \"The Angry\""
+vida = 100
+velocidade_ataque = 1.0
+
+[node name="3DGodotRobot" parent="." instance=ExtResource("2_7u3kt")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.8794191, 0)
+
+[node name="Bottom" parent="3DGodotRobot/RobotArmature/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_ltlmh")
+
+[node name="Chest" parent="3DGodotRobot/RobotArmature/Skeleton3D" index="1"]
+material_override = SubResource("StandardMaterial3D_wgnky")
+
+[node name="Face" parent="3DGodotRobot/RobotArmature/Skeleton3D" index="2"]
+material_override = SubResource("StandardMaterial3D_hji4c")
+
+[node name="Llimbs and head" parent="3DGodotRobot/RobotArmature/Skeleton3D" index="3"]
+material_override = SubResource("StandardMaterial3D_hrgxi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_r4xcy")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 2.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.9999665, 0, -0.008185551, 0, 1, 0, 0.008185551, 0, -0.9999665, 0, 0.3224676, -0.25113273)
+emitting = false
+amount = 16
+lifetime = 0.25
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_y60ay")
+draw_pass_1 = SubResource("QuadMesh_rdsc4")
+
+[node name="Fumaça" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73689485, 0)
+amount = 32
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_7u3kt")
+draw_pass_1 = SubResource("QuadMesh_ed2xb")
+
+[connection signal="attack" from="3DGodotRobot/Colision_Controller" to="." method="_on_colision_controller_attack"]
+
+[editable path="3DGodotRobot"]

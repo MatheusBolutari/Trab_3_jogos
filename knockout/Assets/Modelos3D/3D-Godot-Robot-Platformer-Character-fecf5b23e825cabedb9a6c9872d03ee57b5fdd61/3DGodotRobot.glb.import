@@ -37,6 +37,19 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Modelos3D/3D-Godot-Robot-Platformer-Character-fecf5b23e825cabedb9a6c9872d03ee57b5fdd61/GodotRobotPaletteSwap/Material.tres",
+"use_external/path": "uid://cre4pr75xd31p"
+},
+"Material.002": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Modelos3D/3D-Godot-Robot-Platformer-Character-fecf5b23e825cabedb9a6c9872d03ee57b5fdd61/GodotRobotPaletteSwap/Material.002.tres",
+"use_external/path": "uid://blrjg40cddtsk"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

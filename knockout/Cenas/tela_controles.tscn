@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://b73xp6aggdfhg"]
+
+[ext_resource type="Script" uid="uid://16e24tpac30p" path="res://Scripts/tela_controles.gd" id="1_5ou1e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ou1e"]
+bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ld658"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ou1e"]
+font_size = 40
+shadow_size = 10
+shadow_color = Color(0.9882353, 0.41568628, 0, 0.61960787)
+
+[node name="Tela_controles" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5ou1e")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ou1e")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -117.5
+offset_top = -135.0
+offset_right = 117.5
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ld658")
+text = "VOLTAR"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -114.5
+offset_right = 169.0
+offset_bottom = 114.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "MOVER: WASD
+BATER: LMB
+DEFENDER: RMB
+SPRINT: SHIFT"
+label_settings = SubResource("LabelSettings_5ou1e")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
