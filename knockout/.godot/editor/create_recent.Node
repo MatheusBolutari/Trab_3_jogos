@@ -1,3 +1,5 @@
+AudioStreamPlayer3D
+AudioStreamPlayer2D
 GPUParticles3D
 Button
 Label
@@ -10,5 +12,3 @@ NavigationRegion3D
 ProgressBar
 BoneAttachment3D
 HSlider
-Node
-CollisionShape3D

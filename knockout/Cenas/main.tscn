@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://0i2ni65tlhnt"]
+[gd_scene load_steps=14 format=3 uid="uid://0i2ni65tlhnt"]
 
 [ext_resource type="PackedScene" uid="uid://inqv4nwc6ssw" path="res://Cenas/parede.tscn" id="1_74bqr"]
 [ext_resource type="Script" uid="uid://btlkac2qyd7ef" path="res://Scripts/main.gd" id="1_n00j1"]
@@ -10,10 +10,11 @@
 [ext_resource type="Script" uid="uid://bd4fjqffadu3p" path="res://Scripts/gerencia_spawn.gd" id="8_btbr3"]
 [ext_resource type="PackedScene" uid="uid://bf64i1ufq854p" path="res://Cenas/inimigo2.tscn" id="8_x6di6"]
 [ext_resource type="PackedScene" uid="uid://ckrqcadyy8uqi" path="res://Cenas/inimigo3.tscn" id="10_jjrtw"]
+[ext_resource type="AudioStream" uid="uid://cue3wdbe3nidl" path="res://Assets/Sons/Gh0st_F1ghts.mp3" id="11_7yi6i"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_n00j1"]
-vertices = PackedVector3Array(-9.271105, 0.49050844, -0.7667351, -1.7711048, 0.49050844, -0.7667351, -1.5211048, 0.49050844, -1.5167351, -0.2711048, 0.49050844, -9.266735, -9.271105, 0.49050844, -9.266735, -0.021104813, 0.49050844, -1.5167351, 9.228895, 0.49050844, -1.5167351, 9.228895, 0.49050844, -9.266735, 5.728895, 0.49050844, 9.233265, 5.728895, 0.49050844, 7.233265, 4.728895, 0.49050844, 6.733265, -1.5211048, 0.49050844, -0.26673508, 4.478895, 0.49050844, 4.983265, 4.728895, 0.49050844, -0.26673508, -9.271105, 0.49050844, 9.233265, 6.478895, 0.49050844, 6.983265, 9.228895, 0.49050844, 9.233265, 5.978895, 0.49050844, 4.733265, 9.228895, 0.49050844, -0.26673508, 6.228895, 0.49050844, -0.26673508)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(3, 5, 2), PackedInt32Array(6, 5, 7), PackedInt32Array(7, 5, 3), PackedInt32Array(8, 10, 9), PackedInt32Array(0, 1, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(11, 12, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 0), PackedInt32Array(0, 8, 14), PackedInt32Array(9, 15, 8), PackedInt32Array(8, 15, 16), PackedInt32Array(15, 17, 16), PackedInt32Array(16, 17, 19), PackedInt32Array(16, 19, 18)]
+vertices = PackedVector3Array(-9.271105, 0.49050844, -1.0167351, -7.021105, 0.49050844, -1.0167351, -6.771105, 0.49050844, -1.5167351, -5.271105, 0.49050844, -5.266735, -5.521105, 0.49050844, -6.516735, -9.271105, 0.49050844, -9.266735, -5.021105, 0.49050844, -6.766735, -5.021105, 0.49050844, -9.266735, -3.0211048, 0.49050844, -1.5167351, -3.0211048, 0.49050844, -5.266735, 4.728895, 0.49050844, -6.516735, 5.478895, 0.49050844, -6.766735, 5.478895, 0.49050844, -9.266735, 3.4788952, 0.49050844, -6.516735, 3.2288952, 0.49050844, -5.266735, -1.5211048, 0.49050844, -5.266735, -1.5211048, 0.49050844, -1.5167351, 4.728895, 0.49050844, -1.5167351, 6.228895, 0.49050844, -6.266735, 9.228895, 0.49050844, -9.266735, 6.228895, 0.49050844, -1.5167351, 9.228895, 0.49050844, -1.5167351, -2.0211048, 0.49050844, 7.733265, -2.7711048, 0.49050844, 6.733265, -3.0211048, 0.49050844, 7.233265, -2.5211048, 0.49050844, 7.983265, -6.521105, 0.49050844, 5.983265, -4.521105, 0.49050844, 5.983265, -4.521105, 0.49050844, -0.26673508, -6.771105, 0.49050844, -0.26673508, -4.271105, 0.49050844, 7.483265, -9.271105, 0.49050844, 9.233265, -6.771105, 0.49050844, 7.233265, -2.2711048, 0.49050844, 9.233265, 4.728895, 0.49050844, -0.26673508, 2.7288952, 0.49050844, -0.26673508, 2.4788952, 0.49050844, 1.7332649, 2.7288952, 0.49050844, 7.733265, 2.9788952, 0.49050844, 7.233265, -0.2711048, 0.49050844, 6.983265, 0.9788952, 0.49050844, 2.233265, 0.9788952, 0.49050844, 3.483265, -0.5211048, 0.49050844, 3.733265, -3.0211048, 0.49050844, -0.26673508, -0.021104813, 0.49050844, 3.233265, 0.7288952, 0.49050844, 0.9832649, 1.2288952, 0.49050844, -0.26673508, 1.2288952, 0.49050844, 5.983265, 4.728895, 0.49050844, 5.983265, 5.978895, 0.49050844, 7.733265, 6.478895, 0.49050844, 6.983265, 5.978895, 0.49050844, 4.733265, 9.228895, 0.49050844, 9.233265, 9.228895, 0.49050844, -0.26673508, 6.228895, 0.49050844, -0.26673508, 5.978895, 0.49050844, 9.233265)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 0, 5), PackedInt32Array(6, 4, 7), PackedInt32Array(7, 4, 5), PackedInt32Array(9, 8, 3), PackedInt32Array(3, 8, 2), PackedInt32Array(10, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(12, 13, 6), PackedInt32Array(12, 6, 7), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 17), PackedInt32Array(13, 10, 14), PackedInt32Array(14, 10, 17), PackedInt32Array(11, 12, 18), PackedInt32Array(18, 12, 19), PackedInt32Array(20, 18, 21), PackedInt32Array(21, 18, 19), PackedInt32Array(25, 24, 22), PackedInt32Array(22, 24, 23), PackedInt32Array(27, 26, 28), PackedInt32Array(28, 26, 29), PackedInt32Array(30, 24, 25), PackedInt32Array(1, 29, 0), PackedInt32Array(0, 29, 26), PackedInt32Array(0, 26, 32), PackedInt32Array(0, 32, 31), PackedInt32Array(25, 33, 30), PackedInt32Array(30, 33, 32), PackedInt32Array(32, 33, 31), PackedInt32Array(36, 35, 34), PackedInt32Array(38, 37, 39), PackedInt32Array(39, 37, 22), PackedInt32Array(41, 40, 36), PackedInt32Array(22, 23, 39), PackedInt32Array(39, 23, 42), PackedInt32Array(42, 23, 43), PackedInt32Array(44, 42, 43), PackedInt32Array(43, 46, 45), PackedInt32Array(41, 36, 47), PackedInt32Array(47, 36, 48), PackedInt32Array(48, 36, 34), PackedInt32Array(41, 44, 40), PackedInt32Array(40, 44, 45), PackedInt32Array(45, 44, 43), PackedInt32Array(37, 38, 49), PackedInt32Array(49, 38, 50), PackedInt32Array(50, 51, 52), PackedInt32Array(52, 51, 54), PackedInt32Array(52, 54, 53), PackedInt32Array(49, 50, 55), PackedInt32Array(55, 50, 52)]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fmu3i"]
 size = Vector2(20, 20)
@@ -99,6 +100,12 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.
 
 [node name="Parede11" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.003164, 0.7781091, -3.2852218)
+
+[node name="Parede85" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.2493956, 0.7781091, -4.7737455)
+
+[node name="Parede90" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.2493956, 0.7781091, -2.1613853)
 
 [node name="Parede12" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.003164, 0.7781091, -0.6467974)
@@ -274,8 +281,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.665191, 2.2640386, 9.919216
 [node name="Parede65" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16405082, 0.743155, -0.8887677)
 
+[node name="Parede80" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.426727, 0.743155, -0.8887677)
+
+[node name="Parede91" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1112204, 0.743155, -0.8887677)
+
 [node name="Parede66" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.806309, 0.743155, -0.8887677)
+
+[node name="Parede88" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5461698, 0.743155, -6.04838)
+
+[node name="Parede89" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8820834, 0.743155, -6.04838)
+
+[node name="Parede93" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-0.9998266, 0, -0.018621473, 0, 1, 0, 0.018621473, 0, -0.9998266, -3.628865, 0.743155, -6.060724)
+
+[node name="Parede73" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.33379, 0.743155, 6.599398)
+
+[node name="Parede75" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8611298, 0.743155, 6.599398)
+
+[node name="Parede76" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-0.26348582, 0, -0.96466327, 0, 1, 0, 0.96466327, 0, -0.26348582, 1.8611298, 0.743155, 0.43208313)
+
+[node name="Parede81" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(0.08517348, 0, -0.99636614, 0, 1, 0, 0.99636614, 0, 0.08517348, 0.43922305, 0.743155, 5.292642)
+
+[node name="Parede74" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.33379, 0.743155, 8.385391)
+
+[node name="Parede86" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8560205, 0.743155, 8.385391)
+
+[node name="Parede87" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6553683, 0.743155, 8.385391)
 
 [node name="Parede67" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.431284, 0.743155, -0.8887677)
@@ -286,14 +329,116 @@ transform = Transform3D(0.04907634, 0, -0.99879503, 0, 1, 0, 0.99879503, 0, 0.04
 [node name="Parede71" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
 transform = Transform3D(-0.09466438, 0, -0.99550927, 0, 1, 0, 0.99550927, 0, -0.09466438, 5.431284, 0.743155, 2.9277415)
 
+[node name="Parede83" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(0.04907634, 0, -0.99879503, 0, 1, 0, 0.99879503, 0, 0.04907634, 5.431284, 0.743155, -4.8138914)
+
+[node name="Parede84" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-0.09466438, 0, -0.99550927, 0, 1, 0, 0.99550927, 0, -0.09466438, 5.431284, 0.743155, -2.290182)
+
 [node name="Parede72" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
 transform = Transform3D(0.15869221, 0, -0.9873281, 0, 1, 0, 0.9873281, 0, 0.15869221, 5.431284, 0.743155, 5.3448515)
+
+[node name="Parede77" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(0.04907634, 0, -0.99879503, 0, 1, 0, 0.99879503, 0, 0.04907634, -3.7628257, 0.743155, 0.40403235)
+
+[node name="Parede78" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-0.09466438, 0, -0.99550927, 0, 1, 0, 0.99550927, 0, -0.09466438, -3.7628257, 0.743155, 2.9277415)
+
+[node name="Parede79" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(0.15869221, 0, -0.9873281, 0, 1, 0, 0.9873281, 0, 0.15869221, -3.7628257, 0.743155, 5.3448515)
+
+[node name="Parede82" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-0.9962659, 0, -0.08633842, 0, 1, 0, 0.08633842, 0, -0.9962659, -4.795782, 0.743155, 6.6412344)
 
 [node name="Parede68" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.003676, 0.743155, -0.8887677)
 
 [node name="Parede69" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.595997, 0.743155, -0.8887677)
+
+[node name="Parede92" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.2493956, 2.1754851, -4.7737455)
+
+[node name="Parede94" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.2493956, 2.1754851, -2.1613853)
+
+[node name="Parede95" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16405082, 2.140531, -0.8887677)
+
+[node name="Parede96" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.426727, 2.140531, -0.8887677)
+
+[node name="Parede97" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1112204, 2.140531, -0.8887677)
+
+[node name="Parede98" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.806309, 2.140531, -0.8887677)
+
+[node name="Parede99" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5461698, 2.140531, -6.04838)
+
+[node name="Parede100" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8820834, 2.140531, -6.04838)
+
+[node name="Parede101" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-0.9998266, 0, -0.018621473, 0, 1, 0, 0.018621473, 0, -0.9998266, -3.628865, 2.140531, -6.060724)
+
+[node name="Parede102" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.33379, 2.140531, 6.599398)
+
+[node name="Parede103" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8611298, 2.140531, 6.599398)
+
+[node name="Parede104" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-0.26348582, 0, -0.96466327, 0, 1, 0, 0.96466327, 0, -0.26348582, 1.8611298, 2.140531, 0.43208313)
+
+[node name="Parede105" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(0.08517348, 0, -0.99636614, 0, 1, 0, 0.99636614, 0, 0.08517348, 0.43922305, 2.140531, 5.292642)
+
+[node name="Parede106" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.33379, 2.140531, 8.385391)
+
+[node name="Parede107" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8560205, 2.140531, 8.385391)
+
+[node name="Parede108" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6553683, 2.140531, 8.385391)
+
+[node name="Parede109" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.431284, 2.140531, -0.8887677)
+
+[node name="Parede110" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(0.04907634, 0, -0.99879503, 0, 1, 0, 0.99879503, 0, 0.04907634, 5.431284, 2.140531, 0.40403235)
+
+[node name="Parede111" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-0.09466438, 0, -0.99550927, 0, 1, 0, 0.99550927, 0, -0.09466438, 5.431284, 2.140531, 2.9277415)
+
+[node name="Parede112" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(0.04907634, 0, -0.99879503, 0, 1, 0, 0.99879503, 0, 0.04907634, 5.431284, 2.140531, -4.8138914)
+
+[node name="Parede113" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-0.09466438, 0, -0.99550927, 0, 1, 0, 0.99550927, 0, -0.09466438, 5.431284, 2.140531, -2.290182)
+
+[node name="Parede114" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(0.15869221, 0, -0.9873281, 0, 1, 0, 0.9873281, 0, 0.15869221, 5.431284, 2.140531, 5.3448515)
+
+[node name="Parede115" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(0.04907634, 0, -0.99879503, 0, 1, 0, 0.99879503, 0, 0.04907634, -3.7628257, 2.140531, 0.40403235)
+
+[node name="Parede116" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-0.09466438, 0, -0.99550927, 0, 1, 0, 0.99550927, 0, -0.09466438, -3.7628257, 2.140531, 2.9277415)
+
+[node name="Parede117" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(0.15869221, 0, -0.9873281, 0, 1, 0, 0.9873281, 0, 0.15869221, -3.7628257, 2.140531, 5.3448515)
+
+[node name="Parede118" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(-0.9962659, 0, -0.08633842, 0, 1, 0, 0.08633842, 0, -0.9962659, -4.795782, 2.140531, 6.6412344)
+
+[node name="Parede119" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.003676, 2.140531, -0.8887677)
+
+[node name="Parede120" parent="Cenário/NavigationRegion3D/Paredes" instance=ExtResource("1_74bqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.595997, 2.140531, -0.8887677)
 
 [node name="Piso" type="MeshInstance3D" parent="Cenário/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007891417, 4.7683716e-07, 0.0043115616)
@@ -304,6 +449,12 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.825, 1, 1.622)
 velocidade_olho = 0.5
 dano = 100
+
+[node name="Musica de Fundo" type="AudioStreamPlayer3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.825, 2.3187165, -1.622)
+stream = ExtResource("11_7yi6i")
+volume_db = -10.0
+autoplay = true
 
 [node name="Inimigo" parent="." instance=ExtResource("4_lb8y5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022, 1, -7.579)
@@ -329,8 +480,26 @@ pitch_scale = 2.02
 stream = ExtResource("7_btbr3")
 pitch_scale = 2.02
 
+[node name="Som_Soco5" type="AudioStreamPlayer3D" parent="gerencia_som"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3973761, 0)
+stream = ExtResource("6_x6di6")
+
+[node name="Som_Soco6" type="AudioStreamPlayer3D" parent="gerencia_som"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3973761, 0)
+stream = ExtResource("7_btbr3")
+
+[node name="Som_Soco7" type="AudioStreamPlayer3D" parent="gerencia_som"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3973761, 0)
+stream = ExtResource("6_x6di6")
+pitch_scale = 2.02
+
+[node name="Som_Soco8" type="AudioStreamPlayer3D" parent="gerencia_som"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3973761, 0)
+stream = ExtResource("7_btbr3")
+pitch_scale = 2.02
+
 [node name="gerencia_spawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.311, 1, 3.561)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.362983, 1, -3.6777246)
 script = ExtResource("8_btbr3")
 cena_inimigo2 = ExtResource("8_x6di6")
 cena_inimigo3 = ExtResource("10_jjrtw")

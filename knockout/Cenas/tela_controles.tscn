@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b73xp6aggdfhg"]
+[gd_scene load_steps=6 format=3 uid="uid://b73xp6aggdfhg"]
 
 [ext_resource type="Script" uid="uid://16e24tpac30p" path="res://Scripts/tela_controles.gd" id="1_5ou1e"]
+[ext_resource type="AudioStream" uid="uid://5um6iyym74bc" path="res://Assets/Sons/Gh0st_4tt4ck.mp3" id="2_j3kdb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ou1e"]
 bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
@@ -66,5 +67,10 @@ BATER: LMB
 DEFENDER: RMB
 SPRINT: SHIFT"
 label_settings = SubResource("LabelSettings_5ou1e")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_j3kdb")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

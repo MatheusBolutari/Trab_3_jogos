@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://8ovhfrhh8p1v"]
+[gd_scene load_steps=9 format=3 uid="uid://8ovhfrhh8p1v"]
 
 [ext_resource type="Script" uid="uid://cfdh0y21klepf" path="res://Scripts/tela_vitoria.gd" id="1_yhj2i"]
 [ext_resource type="Texture2D" uid="uid://b080xg3o48xo1" path="res://Assets/Texturas/Fantasma.png" id="2_cuxwl"]
+[ext_resource type="AudioStream" uid="uid://d3csjggxj7ev5" path="res://Assets/Sons/C1rcu1t_Bre4kr.mp3" id="3_kmdc1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kmdc1"]
 texture = ExtResource("2_cuxwl")
@@ -104,6 +105,11 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_kmdc1")
 text = "CRÉDITOS"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kmdc1")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://3wn47dn5dnbe"]
+[gd_scene load_steps=7 format=3 uid="uid://3wn47dn5dnbe"]
 
 [ext_resource type="Script" uid="uid://d275we27ucma0" path="res://Scripts/game_over.gd" id="1_18dpl"]
+[ext_resource type="AudioStream" uid="uid://cs10qmimla2uo" path="res://Assets/Sons/Y0u_4re_De4d.mp3" id="2_7y2ld"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qawoc"]
 bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
@@ -87,6 +88,11 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "VOCÊ MORREU"
 label_settings = SubResource("LabelSettings_18dpl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_7y2ld")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
