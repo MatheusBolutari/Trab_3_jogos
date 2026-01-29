@@ -1,0 +1,150 @@
+[gd_scene load_steps=14 format=3 uid="uid://d2xmbhekhjog8"]
+
+[ext_resource type="Script" uid="uid://b1tn56fi1agf7" path="res://Scripts/creditos.gd" id="1_5vcb0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ct8y5"]
+bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a3en7"]
+font_size = 40
+shadow_size = 10
+shadow_color = Color(0.9882353, 0.41568628, 0, 0.61960787)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5vcb0"]
+font_size = 40
+shadow_size = 10
+shadow_color = Color(0.9882353, 0.41568628, 0, 0.61960787)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ct8y5"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ep0f"]
+font_size = 40
+shadow_size = 10
+shadow_color = Color(0.9882353, 0.41568628, 0, 0.61960787)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y3t63"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_lp7pw"]
+font_size = 40
+shadow_size = 10
+shadow_color = Color(0.9882353, 0.41568628, 0, 0.61960787)
+
+[sub_resource type="LabelSettings" id="LabelSettings_576tj"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_a1qbs"]
+font_size = 40
+shadow_size = 10
+shadow_color = Color(0.9882353, 0.41568628, 0, 0.61960787)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pagur"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_roh41"]
+font_size = 40
+shadow_size = 10
+shadow_color = Color(0.9882353, 0.41568628, 0, 0.61960787)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bq8tw"]
+font_size = 40
+
+[node name="Creditos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5vcb0")
+velocidade = 50.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ct8y5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -124.0
+offset_bottom = 604.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "KNOCKOUT"
+label_settings = SubResource("LabelSettings_a3en7")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "PROGRAMAÇÃO"
+label_settings = SubResource("LabelSettings_5vcb0")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "ARTHUR LEMONGE LANNA
+MATHEUS BOLUTARI NASCIMENTO"
+label_settings = SubResource("LabelSettings_ct8y5")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "MODELOS 3D"
+label_settings = SubResource("LabelSettings_0ep0f")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "https://godotengine.org/asset-library/asset/1467"
+label_settings = SubResource("LabelSettings_y3t63")
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "TEXTURAS"
+label_settings = SubResource("LabelSettings_lp7pw")
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "BRICK PAVEMENT - CHARLOTTE BAGLIONI"
+label_settings = SubResource("LabelSettings_576tj")
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "EFEITOS SONOROS"
+label_settings = SubResource("LabelSettings_a1qbs")
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Som de soco 1: tterfter
+Som de soco 2: Autor desconhecido 
+https://www.myinstants.com/pt/search/?name=punch"
+label_settings = SubResource("LabelSettings_pagur")
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "MÚSICAS"
+label_settings = SubResource("LabelSettings_roh41")
+horizontal_alignment = 1
+
+[node name="Label11" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Músicas geradas pela IA \"suno.ai\""
+label_settings = SubResource("LabelSettings_bq8tw")
+horizontal_alignment = 1

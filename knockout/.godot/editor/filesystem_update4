@@ -1,12 +1,5 @@
-res://Cenas/inimigo4.tscn
 res://Scripts/inimigo.gd
-res://Scripts/inimigo_4.gd
-res://Cenas/sala_de_testes.tscn
 res://Cenas/main.tscn
-res://Scripts/gerencia_spawn.gd
-res://Scripts/main.gd
+res://Cenas/creditos.tscn
+res://Cenas/creditos.gd
 res://Scripts/tela_vitoria.gd
-res://Scripts/game_over.gd
-res://Cenas/player.tscn
-res://Scripts/player.gd
-res://Scripts/hud.gd

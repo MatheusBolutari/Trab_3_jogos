@@ -1,14 +1,14 @@
+Label
+VBoxContainer
+PanelContainer
 Button
 Timer
 GPUParticles3D
 AudioStreamPlayer3D
 AudioStreamPlayer2D
-Label
-PanelContainer
 Panel
 Marker3D
 MeshInstance3D
 NavigationRegion3D
 ProgressBar
 BoneAttachment3D
-HSlider

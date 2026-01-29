@@ -58,7 +58,7 @@ func ataque() -> void:
 
 func _on_colision_controller_attack(arg : String) -> void:
 	if arg == "dano" and animation_player.current_animation == "Attack1":
-		print("HIT")
+		#print("HIT")
 		hit.emit(dano)
 		attack_sound.emit()
 		if randf() > 0.7:
