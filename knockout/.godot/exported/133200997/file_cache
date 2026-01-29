@@ -1,0 +1,15 @@
+res://Assets/Modelos3D/3D-Godot-Robot-Platformer-Character-fecf5b23e825cabedb9a6c9872d03ee57b5fdd61/GodotRobotPaletteSwap/Material.002.tres::9ea088ba2f9b29e28571b545e0a196e3::1769635785::res://.godot/exported/133200997/export-53c4276960306525f2a534b5c79a7178-Material.002.res
+res://Assets/Modelos3D/3D-Godot-Robot-Platformer-Character-fecf5b23e825cabedb9a6c9872d03ee57b5fdd61/GodotRobotPaletteSwap/Material.tres::0feede72c4a7585d46ea43b315357b40::1769635785::res://.godot/exported/133200997/export-fc03cd543eb0572e8b5d524f090f3e17-Material.res
+res://Cenas/creditos.tscn::acf0c829d11055e11c85ccd38c50157f::1769718127::res://.godot/exported/133200997/export-32a6181c7b2b9f0b2b2542a418dca877-creditos.scn
+res://Cenas/game_over.tscn::0e4d2bed781820da664493422b25f65d::1769636240::res://.godot/exported/133200997/export-0cb5455e1cf5c11a57f9c5aa9a25abcf-game_over.scn
+res://Cenas/inimigo2.tscn::c614b1edb4a1fddf41f188aa6e889b12::1769635785::res://.godot/exported/133200997/export-6c4b1de782bac2ea7d5ff0bb7e9d6b0d-inimigo2.scn
+res://Cenas/inimigo3.tscn::6eae0b92943062e2c5f537b6f06b58d8::1769635785::res://.godot/exported/133200997/export-b570b10f22155756868132ff9571aa05-inimigo3.scn
+res://Cenas/inimigo4.tscn::2acab92bbd22513916bcb88e80ffe81e::1769710575::res://.godot/exported/133200997/export-834ba9050cad1b577fa5c517ea145b45-inimigo4.scn
+res://Cenas/inimigo.tscn::99a5c75d2f45e90b238be04f1f213eaf::1769635785::res://.godot/exported/133200997/export-4e27a3a72f0a582a51d979c068ca7a3f-inimigo.scn
+res://Cenas/main.tscn::3a00ba01122323d062b386af3ccd92b7::1769719773::res://.godot/exported/133200997/export-c9be1868c51588a80f951d7bc4c709d2-main.scn
+res://Cenas/parede.tscn::4abf546f38462b8721da1fbd281dd8e8::1769551125::res://.godot/exported/133200997/export-3d265ec47a86ce6cd3853747f9c8c5ff-parede.scn
+res://Cenas/player.tscn::b5881a48d172064d1f766b42274d21c1::1769719305::res://.godot/exported/133200997/export-e7610780f7a424ba1977b81e251b7839-player.scn
+res://Cenas/Robozinho_godot_2.tscn::6de06ed23ea9129ef551445a7176c0cf::1769442629::res://.godot/exported/133200997/export-6d04fd4b4b96be3740fab4397afd028e-Robozinho_godot_2.scn
+res://Cenas/tela_controles.tscn::8c286e7d7ea57456aa355cbe52c525b9::1769719549::res://.godot/exported/133200997/export-a8543871c2111fd478e388ffd26ff06e-tela_controles.scn
+res://Cenas/tela_inicial.tscn::825e1cc1e6242c85ab74470ffcfeefab::1769636048::res://.godot/exported/133200997/export-cc57b50a2948c1c589a22af41f7d1254-tela_inicial.scn
+res://Cenas/tela_vitoria.tscn::a08b0052b61be17af62892a7d0448b6c::1769718133::res://.godot/exported/133200997/export-f47301fb069c4a3488994f8d5c4e5bb5-tela_vitoria.scn

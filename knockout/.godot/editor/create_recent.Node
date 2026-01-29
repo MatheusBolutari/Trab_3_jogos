@@ -1,11 +1,11 @@
+AudioStreamPlayer3D
+AudioStreamPlayer2D
 Label
 VBoxContainer
 PanelContainer
 Button
 Timer
 GPUParticles3D
-AudioStreamPlayer3D
-AudioStreamPlayer2D
 Panel
 Marker3D
 MeshInstance3D

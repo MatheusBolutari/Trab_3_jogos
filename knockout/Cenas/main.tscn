@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://0i2ni65tlhnt"]
+[gd_scene load_steps=16 format=3 uid="uid://0i2ni65tlhnt"]
 
 [ext_resource type="PackedScene" uid="uid://inqv4nwc6ssw" path="res://Cenas/parede.tscn" id="1_74bqr"]
 [ext_resource type="Script" uid="uid://btlkac2qyd7ef" path="res://Scripts/main.gd" id="1_n00j1"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://k6jyruej5m8p" path="res://Assets/Sons/punch-notification_sound-493565.mp3" id="7_btbr3"]
 [ext_resource type="Script" uid="uid://bd4fjqffadu3p" path="res://Scripts/gerencia_spawn.gd" id="8_btbr3"]
 [ext_resource type="PackedScene" uid="uid://bf64i1ufq854p" path="res://Cenas/inimigo2.tscn" id="8_x6di6"]
+[ext_resource type="AudioStream" uid="uid://cnkf815q8kg1j" path="res://Assets/Sons/one-punch.mp3" id="9_me8gh"]
 [ext_resource type="PackedScene" uid="uid://ckrqcadyy8uqi" path="res://Cenas/inimigo3.tscn" id="10_jjrtw"]
 [ext_resource type="AudioStream" uid="uid://cue3wdbe3nidl" path="res://Assets/Sons/Gh0st_F1ghts.mp3" id="11_7yi6i"]
 [ext_resource type="PackedScene" uid="uid://b4y33bnlxm3ix" path="res://Cenas/inimigo4.tscn" id="12_irhh0"]
@@ -22,6 +23,40 @@ size = Vector2(20, 20)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_n00j1")
+
+[node name="gerencia_som" type="Node" parent="."]
+script = ExtResource("5_n00j1")
+
+[node name="Som_Soco1" type="AudioStreamPlayer3D" parent="gerencia_som"]
+stream = ExtResource("6_x6di6")
+
+[node name="Som_Soco2" type="AudioStreamPlayer3D" parent="gerencia_som"]
+stream = ExtResource("7_btbr3")
+
+[node name="Som_Soco3" type="AudioStreamPlayer3D" parent="gerencia_som"]
+stream = ExtResource("6_x6di6")
+pitch_scale = 2.02
+
+[node name="Som_Soco4" type="AudioStreamPlayer3D" parent="gerencia_som"]
+stream = ExtResource("7_btbr3")
+pitch_scale = 2.02
+
+[node name="Som_Soco5" type="AudioStreamPlayer3D" parent="gerencia_som"]
+stream = ExtResource("6_x6di6")
+
+[node name="Som_Soco6" type="AudioStreamPlayer3D" parent="gerencia_som"]
+stream = ExtResource("7_btbr3")
+
+[node name="Som_Soco7" type="AudioStreamPlayer3D" parent="gerencia_som"]
+stream = ExtResource("6_x6di6")
+pitch_scale = 2.02
+
+[node name="Som_Soco8" type="AudioStreamPlayer3D" parent="gerencia_som"]
+stream = ExtResource("7_btbr3")
+pitch_scale = 2.02
+
+[node name="Som_Soco9" type="AudioStreamPlayer3D" parent="gerencia_som"]
+stream = ExtResource("9_me8gh")
 
 [node name="Cenário" type="Node" parent="."]
 
@@ -407,7 +442,7 @@ skeleton = NodePath("../../..")
 [node name="Player" parent="." instance=ExtResource("2_ruij7")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.825, 1, 1.622)
 velocidade_olho = 0.5
-dano = 100
+dano = 10
 
 [node name="Sair" type="Button" parent="Player/Primeira_Pessoa/Hud" index="3"]
 anchors_preset = 1
@@ -431,41 +466,6 @@ empurrao = 3.0
 dano = 5
 nome = "Geremias \"The Killer\""
 
-[node name="gerencia_som" type="Node" parent="."]
-script = ExtResource("5_n00j1")
-
-[node name="Som_Soco1" type="AudioStreamPlayer3D" parent="gerencia_som"]
-stream = ExtResource("6_x6di6")
-
-[node name="Som_Soco2" type="AudioStreamPlayer3D" parent="gerencia_som"]
-stream = ExtResource("7_btbr3")
-
-[node name="Som_Soco3" type="AudioStreamPlayer3D" parent="gerencia_som"]
-stream = ExtResource("6_x6di6")
-pitch_scale = 2.02
-
-[node name="Som_Soco4" type="AudioStreamPlayer3D" parent="gerencia_som"]
-stream = ExtResource("7_btbr3")
-pitch_scale = 2.02
-
-[node name="Som_Soco5" type="AudioStreamPlayer3D" parent="gerencia_som"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3973761, 0)
-stream = ExtResource("6_x6di6")
-
-[node name="Som_Soco6" type="AudioStreamPlayer3D" parent="gerencia_som"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3973761, 0)
-stream = ExtResource("7_btbr3")
-
-[node name="Som_Soco7" type="AudioStreamPlayer3D" parent="gerencia_som"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3973761, 0)
-stream = ExtResource("6_x6di6")
-pitch_scale = 2.02
-
-[node name="Som_Soco8" type="AudioStreamPlayer3D" parent="gerencia_som"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3973761, 0)
-stream = ExtResource("7_btbr3")
-pitch_scale = 2.02
-
 [node name="gerencia_spawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.362983, 1, -3.6777246)
 script = ExtResource("8_btbr3")
@@ -485,8 +485,8 @@ ignore_time_scale = true
 [connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]
 [connection signal="punch_sound" from="Player" to="gerencia_som" method="_on_player_punch_sound"]
 [connection signal="pressed" from="Player/Primeira_Pessoa/Hud/Sair" to="Player/Primeira_Pessoa/Hud" method="_on_sair_pressed"]
-[connection signal="colisao" from="Player/gerencia_bracos" to="Inimigo" method="_on_gerencia_bracos_colisao"]
 [connection signal="colisao" from="Player/gerencia_bracos" to="gerencia_som" method="_on_gerencia_bracos_colisao"]
+[connection signal="colisao" from="Player/gerencia_bracos" to="Inimigo" method="_on_gerencia_bracos_colisao"]
 [connection signal="Enemy_Health_Bar" from="Inimigo" to="Player/Primeira_Pessoa/Hud" method="_on_inimigo_enemy_health_bar"]
 [connection signal="Enemy_Name" from="Inimigo" to="Player/Primeira_Pessoa/Hud" method="_on_inimigo_enemy_name"]
 [connection signal="attack_sound" from="Inimigo" to="gerencia_som" method="_on_inimigo_attack_sound"]
