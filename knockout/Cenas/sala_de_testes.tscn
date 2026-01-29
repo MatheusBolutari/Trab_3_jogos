@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c002n6ntvdq3x" path="res://Scripts/sala_de_testes.gd" id="1_67ekk"]
 [ext_resource type="PackedScene" uid="uid://bs6erd3fjim0p" path="res://Cenas/player.tscn" id="1_mlq5q"]
-[ext_resource type="PackedScene" uid="uid://bf64i1ufq854p" path="res://Cenas/inimigo2.tscn" id="3_g2hjm"]
+[ext_resource type="PackedScene" uid="uid://b4y33bnlxm3ix" path="res://Cenas/inimigo4.tscn" id="2_ea0tj"]
 [ext_resource type="Script" uid="uid://cgfbs5gxgkb0o" path="res://Scripts/gerencia_som.gd" id="4_to47i"]
 [ext_resource type="AudioStream" uid="uid://dqtwvi5dgsntf" path="res://Assets/Sons/punch-sound-effect.mp3" id="5_ea0tj"]
 [ext_resource type="AudioStream" uid="uid://k6jyruej5m8p" path="res://Assets/Sons/punch-notification_sound-493565.mp3" id="6_o0ncy"]
@@ -25,15 +25,19 @@ size = Vector2(20, 20)
 mesh = SubResource("PlaneMesh_co7y1")
 script = ExtResource("1_67ekk")
 
+[node name="Inimigo2" parent="." instance=ExtResource("2_ea0tj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2304447, 3.2467108)
+velocidade_animacao = 2.0
+velocidade = 5.0
+dano = 3
+vida = 100
+
 [node name="Player" parent="." instance=ExtResource("1_mlq5q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.101361, 0)
 velocidade_olho = 0.5
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.03932956, 0.9992263, 0, -0.9992263, -0.03932956, 0, 0, 0)
-
-[node name="Inimigo" parent="." instance=ExtResource("3_g2hjm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.094286, 1.1246805, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_to6wm")

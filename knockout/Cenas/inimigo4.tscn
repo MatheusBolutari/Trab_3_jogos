@@ -1,0 +1,117 @@
+[gd_scene load_steps=17 format=3 uid="uid://b4y33bnlxm3ix"]
+
+[ext_resource type="Script" uid="uid://vll00xgmbxoh" path="res://Scripts/inimigo_4.gd" id="1_ptcx4"]
+[ext_resource type="PackedScene" uid="uid://fvyobbuoqo2q" path="res://Cenas/Robozinho_godot_2.tscn" id="2_ptcx4"]
+[ext_resource type="Texture2D" uid="uid://djspgg1cim4fx" path="res://Assets/Modelos3D/3D-Godot-Robot-Platformer-Character-fecf5b23e825cabedb9a6c9872d03ee57b5fdd61/GodotRobotPaletteSwap/GodotGreenPalette.png" id="3_bq03w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxjx6"]
+albedo_texture = ExtResource("3_bq03w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8o621"]
+albedo_texture = ExtResource("3_bq03w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptlj7"]
+albedo_texture = ExtResource("3_bq03w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mikfc"]
+albedo_texture = ExtResource("3_bq03w")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r4xcy"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y60ay"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+direction = Vector3(1, 1, 1)
+spread = 0.0
+linear_accel_min = 89.28999
+linear_accel_max = 89.28999
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 36.899998
+tangential_accel_min = -100.0
+tangential_accel_max = 99.99999
+damping_max = 14.286
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_duo5w"]
+albedo_color = Color(1, 0.7058824, 0.32156864, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_rdsc4"]
+material = SubResource("StandardMaterial3D_duo5w")
+size = Vector2(0.05, 0.05)
+
+[sub_resource type="Curve" id="Curve_ptcx4"]
+_data = [Vector2(0.023076922, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bq03w"]
+curve = SubResource("Curve_ptcx4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dxjx6"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+inherit_velocity_ratio = 5.0
+angular_velocity_min = 99.999985
+angular_velocity_max = 299.99997
+radial_velocity_min = 0.24997765
+radial_velocity_max = 1.9999776
+gravity = Vector3(0, 5, 0)
+tangential_accel_min = -25.000002
+tangential_accel_max = -2.2351742e-06
+scale_curve = SubResource("CurveTexture_bq03w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jh1d2"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.54376465, 0.51577985, 0.49419987, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_21js6"]
+material = SubResource("StandardMaterial3D_jh1d2")
+size = Vector2(0.1, 0.1)
+
+[node name="Inimigo" type="CharacterBody3D" groups=["Inimigos"]]
+script = ExtResource("1_ptcx4")
+velocidade_animacao = 2.0
+velocidade = 6.0
+dano = 3
+nome = "Rodrigo \"The Spinner\""
+vida = 100
+
+[node name="3DGodotRobot" parent="." instance=ExtResource("2_ptcx4")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.8794191, 0)
+
+[node name="Bottom" parent="3DGodotRobot/RobotArmature/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_dxjx6")
+
+[node name="Chest" parent="3DGodotRobot/RobotArmature/Skeleton3D" index="1"]
+material_override = SubResource("StandardMaterial3D_8o621")
+
+[node name="Face" parent="3DGodotRobot/RobotArmature/Skeleton3D" index="2"]
+material_override = SubResource("StandardMaterial3D_ptlj7")
+
+[node name="Llimbs and head" parent="3DGodotRobot/RobotArmature/Skeleton3D" index="3"]
+material_override = SubResource("StandardMaterial3D_mikfc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_r4xcy")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 2.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.9999665, 0, -0.008185551, 0, 1, 0, 0.008185551, 0, -0.9999665, 0, 0.3224676, -0.25113273)
+emitting = false
+amount = 16
+lifetime = 0.25
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_y60ay")
+draw_pass_1 = SubResource("QuadMesh_rdsc4")
+
+[node name="Tornado" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7230759, 0)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_dxjx6")
+draw_pass_1 = SubResource("QuadMesh_21js6")
+
+[connection signal="attack" from="3DGodotRobot/Colision_Controller" to="." method="_on_colision_controller_attack"]
+
+[editable path="3DGodotRobot"]

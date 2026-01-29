@@ -6,30 +6,31 @@ extends CharacterBody3D
 @onready var primeira_pessoa: Camera3D = $Primeira_Pessoa
 @onready var terceira_pessoa: Camera3D = $Terceira_Pessoa #Camera para DEBUG
 
-var direcao_k : Vector3
-var orientacao_base: Quaternion
-var mouse_h = 0
-var mouse_v = 0
-var sprint = 0
-var dt = 0
-var soco = 0
-var vida: int = 100
-var dano_aux : int
+var direcao_k : Vector3 #knockback
+var orientacao_base: Quaternion #camera
+var mouse_h: float #camera
+var mouse_v: float #camera
+var sprint : float #movimentação
+var soco : int #controlador animação 0 = Braço Direito e 1 = Braço Esquerdo
+var vida: int
 
-var bloqueando: bool = false
-var socando: bool = false
+var bloqueando: bool #controles
+var socando: bool #controle
 
-var knockback : float 
-var dx : float
-var dz : float
+var knockback : float #knockback
+var dx : float #Eixo x de movimentação
+var dz : float #Eixo z de movimentação
 
 #signal block
-signal punch_sound
-signal health_bar
-signal punch_damage
+signal punch_sound #controla emissão de som
+signal health_bar #controla barra de vida
+signal punch_damage #controla dano causado pelo player
+signal player_dead #controla quando o player morre
 
 
 func _ready() -> void:
+	mouse_h = 0
+	mouse_v = 0
 	orientacao_base = quaternion
 	vida = 100
 	dx = 0
@@ -37,7 +38,10 @@ func _ready() -> void:
 	knockback = 0
 	direcao_k = Vector3.ZERO
 	health_bar.emit(vida)
-	dano_aux = dano
+	sprint = 0
+	soco = 0
+	bloqueando = false
+	socando = false
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -49,16 +53,19 @@ func _physics_process(delta: float) -> void:
 		dx = Input.get_axis("Esquerda","Direita")
 		dz = Input.get_axis("Frente","Atras")
 	
+	#CAMERA
 	var angle_y = mouse_h * velocidade_olho * delta
 	var angle_x = mouse_v * velocidade_olho * delta
 	var rot_y = Quaternion(Vector3.UP, -angle_y)
 	var rot_x = Quaternion(Vector3.LEFT, angle_x)
 	
+	#SPRINT
 	if Input.is_action_just_pressed("Sprint"):
 		sprint = 10
 	if Input.is_action_just_released("Sprint"):
 		sprint = 0
 	
+	#COMBATE
 	if Input.is_action_just_pressed("Socar"):
 		if soco == 0 and !$AnimationPlayer.is_playing() and !bloqueando:
 			$AnimationPlayer.play("SocoD")
@@ -88,13 +95,16 @@ func _physics_process(delta: float) -> void:
 		$AnimationPlayer.play("Abaixar_Bloqueio")
 		bloqueando = false
 		#block.emit('!bloqueio')
-		
+	
+	#CAMERA DE DEBUG----------
 	if Input.is_action_just_pressed("Trocar_Camera"):
 		if primeira_pessoa.current:
 			terceira_pessoa.make_current()
 		else :
 			primeira_pessoa.make_current()
+	#--------------------------
 	
+	#MOVIMENTAÇÃO DO PLAYER E CAMERA
 	var direction = (transform.basis.x * dx + transform.basis.z * dz)
 	direction = direction.normalized()
 	
@@ -110,7 +120,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	quaternion *= rot_x
-	dt += delta
 
 
 func _on_inimigo_hit(dano : int) -> void:
@@ -119,6 +128,8 @@ func _on_inimigo_hit(dano : int) -> void:
 	else :
 		vida -= dano
 	health_bar.emit(vida)
+	if vida <= 0:
+		player_dead.emit()
 
 func _on_inimigo_knockback(empurrao : float, direcao_k : Vector3) -> void:
 	self.direcao_k = direcao_k

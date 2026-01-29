@@ -2,6 +2,7 @@ extends Marker3D
 
 @export var cena_inimigo2: PackedScene
 @export var cena_inimigo3 : PackedScene
+@export var cena_inimigo4 : PackedScene
 @onready var timer: Timer = $Timer
 @onready var player: CharacterBody3D = $"../Player"
 @onready var hud: CanvasLayer = $"../Player/Primeira_Pessoa/Hud"
@@ -9,16 +10,15 @@ extends Marker3D
 var inimigo_atual : int = 2
 
 signal spawn
-#@export var cena_inimigo4 : PackedScene
-#@export var cena_inimigo5 : PackedScene
+
+signal the_end
 
 func enemy_spawn() -> void:
 	var novo_inimigo
 	match inimigo_atual:
 		2: novo_inimigo = cena_inimigo2.instantiate()
 		3: novo_inimigo = cena_inimigo3.instantiate()
-		4: pass
-		5: pass
+		4: novo_inimigo = cena_inimigo4.instantiate()
 	if novo_inimigo:
 		novo_inimigo.position = global_position
 		get_parent().add_child(novo_inimigo)
@@ -26,7 +26,10 @@ func enemy_spawn() -> void:
 		inimigo_atual += 1
 		
 func _on_inimigo_dead() -> void:
-	timer.start()
+	if inimigo_atual < 5:
+		timer.start()
+	elif inimigo_atual == 5:
+		the_end.emit()
 
 func _on_timer_timeout() -> void:
 	enemy_spawn()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://0i2ni65tlhnt"]
+[gd_scene load_steps=15 format=3 uid="uid://0i2ni65tlhnt"]
 
 [ext_resource type="PackedScene" uid="uid://inqv4nwc6ssw" path="res://Cenas/parede.tscn" id="1_74bqr"]
 [ext_resource type="Script" uid="uid://btlkac2qyd7ef" path="res://Scripts/main.gd" id="1_n00j1"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bf64i1ufq854p" path="res://Cenas/inimigo2.tscn" id="8_x6di6"]
 [ext_resource type="PackedScene" uid="uid://ckrqcadyy8uqi" path="res://Cenas/inimigo3.tscn" id="10_jjrtw"]
 [ext_resource type="AudioStream" uid="uid://cue3wdbe3nidl" path="res://Assets/Sons/Gh0st_F1ghts.mp3" id="11_7yi6i"]
+[ext_resource type="PackedScene" uid="uid://b4y33bnlxm3ix" path="res://Cenas/inimigo4.tscn" id="12_irhh0"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_n00j1"]
 vertices = PackedVector3Array(-9.271105, 0.49050844, -1.0167351, -7.021105, 0.49050844, -1.0167351, -6.771105, 0.49050844, -1.5167351, -5.271105, 0.49050844, -5.266735, -5.521105, 0.49050844, -6.516735, -9.271105, 0.49050844, -9.266735, -5.021105, 0.49050844, -6.766735, -5.021105, 0.49050844, -9.266735, -3.0211048, 0.49050844, -1.5167351, -3.0211048, 0.49050844, -5.266735, 4.728895, 0.49050844, -6.516735, 5.478895, 0.49050844, -6.766735, 5.478895, 0.49050844, -9.266735, 3.4788952, 0.49050844, -6.516735, 3.2288952, 0.49050844, -5.266735, -1.5211048, 0.49050844, -5.266735, -1.5211048, 0.49050844, -1.5167351, 4.728895, 0.49050844, -1.5167351, 6.228895, 0.49050844, -6.266735, 9.228895, 0.49050844, -9.266735, 6.228895, 0.49050844, -1.5167351, 9.228895, 0.49050844, -1.5167351, -2.0211048, 0.49050844, 7.733265, -2.7711048, 0.49050844, 6.733265, -3.0211048, 0.49050844, 7.233265, -2.5211048, 0.49050844, 7.983265, -6.521105, 0.49050844, 5.983265, -4.521105, 0.49050844, 5.983265, -4.521105, 0.49050844, -0.26673508, -6.771105, 0.49050844, -0.26673508, -4.271105, 0.49050844, 7.483265, -9.271105, 0.49050844, 9.233265, -6.771105, 0.49050844, 7.233265, -2.2711048, 0.49050844, 9.233265, 4.728895, 0.49050844, -0.26673508, 2.7288952, 0.49050844, -0.26673508, 2.4788952, 0.49050844, 1.7332649, 2.7288952, 0.49050844, 7.733265, 2.9788952, 0.49050844, 7.233265, -0.2711048, 0.49050844, 6.983265, 0.9788952, 0.49050844, 2.233265, 0.9788952, 0.49050844, 3.483265, -0.5211048, 0.49050844, 3.733265, -3.0211048, 0.49050844, -0.26673508, -0.021104813, 0.49050844, 3.233265, 0.7288952, 0.49050844, 0.9832649, 1.2288952, 0.49050844, -0.26673508, 1.2288952, 0.49050844, 5.983265, 4.728895, 0.49050844, 5.983265, 5.978895, 0.49050844, 7.733265, 6.478895, 0.49050844, 6.983265, 5.978895, 0.49050844, 4.733265, 9.228895, 0.49050844, 9.233265, 9.228895, 0.49050844, -0.26673508, 6.228895, 0.49050844, -0.26673508, 5.978895, 0.49050844, 9.233265)
@@ -446,12 +447,21 @@ mesh = SubResource("PlaneMesh_fmu3i")
 skeleton = NodePath("../../..")
 
 [node name="Player" parent="." instance=ExtResource("2_ruij7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.825, 1, 1.622)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.825, 1, 1.622)
 velocidade_olho = 0.5
 dano = 100
 
+[node name="Sair" type="Button" parent="Player/Primeira_Pessoa/Hud" index="3"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -59.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Sair"
+
 [node name="Musica de Fundo" type="AudioStreamPlayer3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.825, 2.3187165, -1.622)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.296, 6, -1.622)
 stream = ExtResource("11_7yi6i")
 volume_db = -10.0
 autoplay = true
@@ -503,12 +513,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.362983, 1, -3.6777246)
 script = ExtResource("8_btbr3")
 cena_inimigo2 = ExtResource("8_x6di6")
 cena_inimigo3 = ExtResource("10_jjrtw")
+cena_inimigo4 = ExtResource("12_irhh0")
 
 [node name="Timer" type="Timer" parent="gerencia_spawn"]
 one_shot = true
 ignore_time_scale = true
 
+[node name="Delay_fim" type="Timer" parent="."]
+
+[node name="Deley_gameover" type="Timer" parent="."]
+
+[connection signal="tg_ui" from="." to="Player/Primeira_Pessoa/Hud" method="_on_main_tg_ui"]
+[connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]
 [connection signal="punch_sound" from="Player" to="gerencia_som" method="_on_player_punch_sound"]
+[connection signal="pressed" from="Player/Primeira_Pessoa/Hud/Sair" to="Player/Primeira_Pessoa/Hud" method="_on_sair_pressed"]
 [connection signal="colisao" from="Player/gerencia_bracos" to="Inimigo" method="_on_gerencia_bracos_colisao"]
 [connection signal="colisao" from="Player/gerencia_bracos" to="gerencia_som" method="_on_gerencia_bracos_colisao"]
 [connection signal="Enemy_Health_Bar" from="Inimigo" to="Player/Primeira_Pessoa/Hud" method="_on_inimigo_enemy_health_bar"]
@@ -518,6 +536,9 @@ ignore_time_scale = true
 [connection signal="hit" from="Inimigo" to="Player" method="_on_inimigo_hit"]
 [connection signal="knockback" from="Inimigo" to="Player" method="_on_inimigo_knockback"]
 [connection signal="spawn" from="gerencia_spawn" to="." method="_on_gerencia_spawn_spawn"]
+[connection signal="the_end" from="gerencia_spawn" to="." method="_on_gerencia_spawn_the_end"]
 [connection signal="timeout" from="gerencia_spawn/Timer" to="gerencia_spawn" method="_on_timer_timeout"]
+[connection signal="timeout" from="Delay_fim" to="." method="_on_delay_fim_timeout"]
+[connection signal="timeout" from="Deley_gameover" to="." method="_on_deley_gameover_timeout"]
 
 [editable path="Player"]

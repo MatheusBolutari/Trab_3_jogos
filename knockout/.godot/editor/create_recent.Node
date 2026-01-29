@@ -1,11 +1,11 @@
+Button
+Timer
+GPUParticles3D
 AudioStreamPlayer3D
 AudioStreamPlayer2D
-GPUParticles3D
-Button
 Label
 PanelContainer
 Panel
-Timer
 Marker3D
 MeshInstance3D
 NavigationRegion3D
